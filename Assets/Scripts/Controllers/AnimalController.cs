@@ -1,3 +1,5 @@
+#undef DEBUG
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

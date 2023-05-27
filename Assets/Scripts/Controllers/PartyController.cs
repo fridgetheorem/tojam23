@@ -6,8 +6,8 @@ public class PartyController : MonoBehaviour
 {
     // Attributes
     public AnimalController leader;
-    private int leaderIndex;
-    public GameObject[] members; // Just so that we are keeping a list of prefabs
+    private int leaderIndex = 0;
+    public GameObject[] members; // Just so that w`e are keeping a list of prefabs
 
     [SerializeField] float partyRadius = 3f;
 
@@ -16,8 +16,8 @@ public class PartyController : MonoBehaviour
     public event OnAnimalChange AnimalChanged;
 
     private void Start(){
-
         // Spawn in all of our party members
+        #region Spawn Allies
         foreach(GameObject member in members){
             // Create a random spawn position for them within a radius.
             Vector2 point = Random.insideUnitCircle * partyRadius;
@@ -29,8 +29,15 @@ public class PartyController : MonoBehaviour
 
             Instantiate(member, spawnPos, randomDirection);
         }
+        #endregion
 
+        leader = members[leaderIndex].GetComponent<AnimalController>();
     }
+
+    private void SetLeader(){
+        
+    }
+    
 
     private void CycleLeader() {
         this.leaderIndex = (this.leaderIndex + 1) % members.Length;
