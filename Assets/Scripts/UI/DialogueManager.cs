@@ -21,10 +21,10 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", true);
-        if (FindObjectOfType<PlayerController>() == true)
-        {
-            FindObjectOfType<PlayerController>().FreezeInput(true);
-        }
+        // if (FindObjectOfType<PlayerController>() == true)
+        // {
+        //     FindObjectOfType<PlayerController>().FreezeInput(true);
+        // }
 
         sentences = new Queue<string>();
         nameText.text = dialogue.name;
@@ -86,7 +86,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         if (dialogue.onEnd == true)
         {
-            FindObjectOfType<PauseMenuUIManager>().StartFinalCutscene();
+            // FindObjectOfType<PauseMenuUIManager>().StartFinalCutscene();
         }
         if (dialogue.onStart == true)
         {
@@ -97,10 +97,10 @@ public class DialogueManager : MonoBehaviour
         else
         {
             animator.SetBool("isOpen", false);
-            if (FindObjectOfType<PlayerController>() == true)
-            {
-                FindObjectOfType<PlayerController>().FreezeInput(false);
-            }
+            // if (FindObjectOfType<PlayerController>() == true)
+            // {
+            //     FindObjectOfType<PlayerController>().FreezeInput(false);
+            // }
         }
     }
 }
