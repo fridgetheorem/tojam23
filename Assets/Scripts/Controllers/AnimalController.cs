@@ -4,29 +4,49 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CapsuleCollider))]
 
 // Damageable dudes
 public abstract class AnimalController : Health
 {
     public CharacterController movementController;
 
+    [SerializeField] private float idleRadius = 2f;
+
     [SerializeField] protected float speed = 10;
     [SerializeField] protected float size = 1;
 
-    // Start is called before the first frame update
+    private float invulnerabilityTimer = 1f;
+
+    protected override void BeDamaged(float amount){
+        // Want there to be some level of invincibility
+        // Flash for 1 second type beat
+        health -= amount;
+        if (health <= 0) return;
+
+        StartCoroutine(BecomeInvincible(invulnerabilityTimer));
+    }
+
+    protected IEnumerator BecomeInvincible(float time){
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+
+        if(!collider) yield break;
+        yield return new WaitForSeconds(time);
+
+        collider.enabled = true;
+    }
+
     #if DEBUG
     void Update(){
         bool interacting = Input.GetButtonDown("Fire1");
-
         // Interaction
         if (interacting) Interact();
     }
-    void FixedUpdate(){
+    protected void FixedUpdate(){
         // Gather Inputs
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
-        //---------------
-
         // Movements
         Vector3 motion = new Vector3(horizontalInput, 0, verticalInput).normalized;
         Move(motion, speed);

@@ -2,22 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AnimalController))]
-
 public class PartyController : MonoBehaviour
 {
     // Attributes
     public AnimalController leader;
-    public int leaderIndex;
-    public AnimalController[] members;
+    private int leaderIndex;
+    public GameObject[] members; // Just so that we are keeping a list of prefabs
+
+    [SerializeField] float partyRadius = 3f;
 
     // Events
     public delegate void OnAnimalChange(AnimalController newLeader);
     public event OnAnimalChange AnimalChanged;
 
+    private void Start(){
+
+        // Spawn in all of our party members
+        foreach(GameObject member in members){
+            // Create a random spawn position for them within a radius.
+            Vector2 point = Random.insideUnitCircle * partyRadius;
+            Vector3 spawnPos = new Vector3(point.x, transform.position.y, point.y);
+
+            // Random heading, just for funsies
+            float heading = Random.Range(0, 360);
+            Quaternion randomDirection = Quaternion.Euler(0, heading, 0);
+
+            Instantiate(member, spawnPos, randomDirection);
+        }
+
+    }
+
     private void CycleLeader() {
         this.leaderIndex = (this.leaderIndex + 1) % members.Length;
-        this.leader = members[this.leaderIndex];
+        this.leader = members[this.leaderIndex].GetComponent<AnimalController>();
         AnimalChanged?.Invoke(this.leader);
     }
 
