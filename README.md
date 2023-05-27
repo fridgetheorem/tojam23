@@ -13,5 +13,5 @@ MVP:
 Some areas of level, we hint at through the environment the ‘correct’ leader, so like an area that slows you down a lot so you need speed leader to get through, but in it damaging the enemy is hard so you need to swap in this swamp area to DPS down the enemy, then also swap to speed
 - Size element, area is blocked 
 
-
- 
+## How to view the UML Diagram
+In order to view the """"UML"""", go to https://app.diagrams.net/.
