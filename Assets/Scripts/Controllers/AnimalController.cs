@@ -16,14 +16,22 @@ public abstract class AnimalController : Health
     // Start is called before the first frame update
     #if DEBUG
     void FixedUpdate(){
+        // Gather Inputs
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
+        bool interacting = Input.GetButtonDown("Fire1");
+        //---------------
+
+        // Movements
         Vector3 motion = new Vector3(horizontalInput, 0, verticalInput).normalized;
         Move(motion, speed);
+
+        // Interaction
+        if (interacting) Interact();
     }
     #endif    
 
-    void Start()
+    protected void Start()
     {
         movementController = GetComponent<CharacterController>();
     }
@@ -32,9 +40,13 @@ public abstract class AnimalController : Health
         movementController.Move(vector * speed);
     }
 
+    // INTERACT
+    // The special ability implemented by each animal
     // To be overridden by each animal type
+    public virtual void Interact (){
+        throw new NotImplementedException();
+    }
     public virtual void Interact (GameObject target){
-        // Don't call this, call the inheritors
         throw new NotImplementedException();
     }
 

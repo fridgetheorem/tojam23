@@ -10,15 +10,7 @@ public class FoxController : AnimalController
     {
         base.Interact(target);
     }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void DoDash(){
+        // Wait for movement info
     }
 }
