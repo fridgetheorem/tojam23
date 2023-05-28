@@ -17,6 +17,7 @@ public abstract class AnimalController : Health
 
     // should be properties not variables but... fuck it we ball
     [SerializeField] public float speed = 10;
+    public float originalSpeed = 10f;
     [SerializeField] public float size = 1;
     [SerializeField] private Transform model;
 
@@ -41,6 +42,8 @@ public abstract class AnimalController : Health
         collider.enabled = true;
     }
 
+
+
 #if DEBUG
     void Update(){
         bool interacting = Input.GetButtonDown("Fire1");
@@ -61,6 +64,7 @@ public abstract class AnimalController : Health
     protected void Awake()
     {
         movementController = GetComponent<CharacterController>();
+        originalSpeed = speed;
     }
 
     public virtual void Move(Vector3 vector, float speed){

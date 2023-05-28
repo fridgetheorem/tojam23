@@ -7,6 +7,9 @@ public class FoxController : AnimalController
     public float dashDistance = 4;
 
     [SerializeField]
+    private float _dashDuration = 0.5f;
+
+    [SerializeField]
     private float _dashCooldown = 1f;
     private bool _canDash = true;
 
@@ -27,7 +30,7 @@ public class FoxController : AnimalController
         _canDash = false;
         InputController._canMove = false;
         StartCoroutine(
-            Dash(heading.normalized*dashDistance, 0.5f)
+            Dash(heading.normalized*dashDistance, _dashDuration)
         );
     }
     IEnumerator Dash(Vector3 direction, float length)
@@ -45,7 +48,7 @@ public class FoxController : AnimalController
     private void OnDashEnd  (){
         InputController._canMove = true;
         _canDash = false;
-        PartyController.followSpeed = dashDistance;
+        PartyController.followSpeed = dashDistance; 
         StartCoroutine(DashCooldown(_dashCooldown));    
     }   
 
