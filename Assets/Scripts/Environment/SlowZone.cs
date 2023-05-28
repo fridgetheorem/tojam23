@@ -16,7 +16,7 @@ public class SlowZone : MonoBehaviour
     //Upon collision with another an animal object, this GameObject will be slowed
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Triggered");
+        //Debug.Log("Triggered");
         if (other.gameObject.GetComponent<AnimalController>() != null)
         {
             other.gameObject.GetComponent<AnimalController>().speed = _slowSpeed;
