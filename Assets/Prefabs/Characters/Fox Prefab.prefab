@@ -161,9 +161,17 @@ PrefabInstance:
       propertyPath: m_SlopeLimit
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4499021645823511457, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6686316497295128358, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
       propertyPath: m_Name
       value: Fox Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6686316497295128358, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
@@ -190,8 +198,10 @@ MonoBehaviour:
   idleRadius: 2
   speed: 7
   size: 1
-  model: {fileID: 0}
-  dashDistance: 2
+  model: {fileID: 1286030238199893671}
+  dashDistance: 10
+  _dashDuration: 0.5
+  _dashCooldown: 0.5
 --- !u!4 &7416450009749504297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1397420043417929680, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}

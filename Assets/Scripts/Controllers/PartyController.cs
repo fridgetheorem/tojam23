@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PartyController : MonoBehaviour
@@ -12,9 +13,17 @@ public class PartyController : MonoBehaviour
 
     [SerializeField] float partyRadius = 2f;
 
+    [SerializeField] CinemachineVirtualCamera _virtualCamera;
+
     // Events
     public delegate void OnAnimalChange(AnimalController newLeader);
     public event OnAnimalChange AnimalChanged;
+
+    private static float _followSpeed = 2f;
+    public static float followSpeed {
+        get { return _followSpeed; }
+        set { _followSpeed = value; }
+    }
 
     private void Start(){
         members = new List<GameObject>();
@@ -40,6 +49,23 @@ public class PartyController : MonoBehaviour
     private void SetLeader(){
         transform.SetPositionAndRotation(leader.transform.position, Quaternion.identity);
         transform.parent = leader.transform;
+        _virtualCamera.Follow = leader.transform;
+
+        setAnimalCollisions();
+    }
+
+    private void setAnimalCollisions(){
+        // Members still collide with members
+        foreach(GameObject member in members){
+            foreach(GameObject otherMember in members){
+                if (member != otherMember) Physics.IgnoreLayerCollision(member.gameObject.layer, otherMember.gameObject.layer, false);
+            }
+        }
+
+        // Leader doesn't collide with members      
+        foreach(GameObject member in members){
+            Physics.IgnoreLayerCollision(leader.gameObject.layer, member.gameObject.layer);
+        }
     }
     
 
@@ -79,7 +105,7 @@ public class PartyController : MonoBehaviour
             Vector3 distance = transform.position - member.transform.position;
 
             if (distance.magnitude > partyRadius){
-                member.GetComponent<AnimalController>().Move(distance, leader.speed);
+                member.GetComponent<AnimalController>().Move(distance, _followSpeed);
             }
 
         }

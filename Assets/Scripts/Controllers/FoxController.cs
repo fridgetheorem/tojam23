@@ -5,6 +5,15 @@ using UnityEngine;
 public class FoxController : AnimalController
 {
     public float dashDistance = 4;
+
+    [SerializeField]
+    private float _dashDuration = 0.5f;
+
+    [SerializeField]
+    private float _dashCooldown = 1f;
+    private bool _canDash = true;
+
+    private bool _dashing = false;
     private Vector3 heading;
 
     public override void Move(Vector3 vector, float speed){
@@ -17,8 +26,11 @@ public class FoxController : AnimalController
         DoDash();
     }
     void DoDash(){
+        if (heading.magnitude > 0 && !_canDash) return;
+        _canDash = false;
+        InputController._canMove = false;
         StartCoroutine(
-            Dash(heading.normalized*dashDistance, 0.8f)
+            Dash(heading.normalized*dashDistance, _dashDuration)
         );
     }
     IEnumerator Dash(Vector3 direction, float length)
@@ -29,6 +41,25 @@ public class FoxController : AnimalController
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        OnDashEnd();
+        yield return null;
+    }
+
+    private void OnDashEnd  (){
+        InputController._canMove = true;
+        _canDash = false;
+        PartyController.followSpeed = dashDistance;
+        StartCoroutine(DashCooldown(_dashCooldown));    
+    }   
+
+    IEnumerator DashCooldown(float length)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < length){
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        _canDash = true;
         yield return null;
     }
 }

@@ -179,8 +179,10 @@ MonoBehaviour:
   _health: 0
   maxHealth: 10
   movementController: {fileID: 0}
+  idleRadius: 2
   speed: 10
   size: 1
+  model: {fileID: 0}
   behaviour: 0
   aggroRange: 5
   contactDamage: 1

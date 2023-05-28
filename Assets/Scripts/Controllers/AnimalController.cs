@@ -41,6 +41,8 @@ public abstract class AnimalController : Health
         collider.enabled = true;
     }
 
+
+
 #if DEBUG
     void Update(){
         bool interacting = Input.GetButtonDown("Fire1");
