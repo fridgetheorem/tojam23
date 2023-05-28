@@ -10,8 +10,8 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     private float _transitionTime = 1f;
 
-    IEnumerator LoadLevel(int levelIndex) {
-    
+    IEnumerator LoadLevel(int levelIndex)
+    {
         transition.SetBool("Start", true);
         yield return new WaitForSeconds(_transitionTime);
         SceneManager.LoadScene(levelIndex);
@@ -26,19 +26,24 @@ public class LevelLoader : MonoBehaviour
     //     StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     // }
 
-    public void EndGame() {
+    public void OnGameOver()
+    {
+        Debug.Log("game ending caught");
+        StartCoroutine(LoadLevel(0));
+    }
+
+    public void EndGame()
+    {
         // If we are running in a standalone build of the game
-        #if UNITY_STANDALONE
+#if UNITY_STANDALONE
         Application.Quit(); // Quit the application
-        #endif
+#endif
 
         // If we are running in the editor
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor
             .EditorApplication
             .isPlaying = false; // Stop playing the scene
-        #endif
+#endif
     }
-
 }
-
