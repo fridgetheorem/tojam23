@@ -26,7 +26,8 @@ public class Health : MonoBehaviour, IDamageable
     public event OnDeath Death;
 
     // ------HEALTH RELATED--------------------
-    [SerializeField] private float _health;
+    [SerializeField]
+    private float _health;
 
     public float health
     {
@@ -45,16 +46,33 @@ public class Health : MonoBehaviour, IDamageable
     }
 
     // -------- DEATH :( ------------------------
-    [SerializeField] public float maxHealth = 10; // Provide default for rapid dev
+    [SerializeField]
+    public float maxHealth = 10; // Provide default for rapid dev
+
+    protected virtual void BeDamaged(float dmg)
+    {
+        health -= dmg;
+    }
+
+    void Awake()
+    {
+        health = maxHealth;
+    }
+
     void Start()
     {
         health = maxHealth;
-
 #if DMGTEST
-        HealthChanged += (float oldHealth, float newHealth)=>{Debug.Log(oldHealth + " -> " + newHealth);};
+        HealthChanged += (float oldHealth, float newHealth) =>
+        {
+            Debug.Log(oldHealth + " -> " + newHealth);
+        };
 #endif
 #if DEATHTEST
-        Death += ()=>{Debug.Log("Character Death");};
+        Death += () =>
+        {
+            Debug.Log("Character Death");
+        };
 #endif
     }
 
@@ -66,10 +84,5 @@ public class Health : MonoBehaviour, IDamageable
     public void FullyHeal()
     {
         health = maxHealth;
-    }
-
-    public virtual void BeDamaged(float dmg)
-    {
-        health -= dmg;
     }
 }

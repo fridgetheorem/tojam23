@@ -25,7 +25,7 @@ public class HealthDisplay : MonoBehaviour
             _health.HealthChanged += OnHealthChanged;
 
             // Record the max health of the animal.
-            _display.maxValue = _health.health;
+            _display.maxValue = _health.maxHealth;
             _display.value = _health.health;
         }
     }

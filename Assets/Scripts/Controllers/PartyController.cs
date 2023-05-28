@@ -14,8 +14,8 @@ public class PartyController : MonoBehaviour
         private set { _leaderIndex = value; }
     }
 
-    public GameObject[] memberPrefabs; // Just so that we are keeping a list of prefabs
-    public List<GameObject> members; // The actual instantiated objects
+    //public GameObject[] memberPrefabs; // Just so that we are keeping a list of prefabs
+    public GameObject[] members; // The actual instantiated objects
 
     [SerializeField]
     float partyRadius = 2f;
@@ -36,18 +36,18 @@ public class PartyController : MonoBehaviour
 
     private void Start()
     {
-        members = new List<GameObject>();
+        //members = new List<GameObject>();
         // Spawn in all of our party members
-        #region Spawn Allies
-        foreach (GameObject member in memberPrefabs)
-        {
-            // Create a random spawn position for them within a radius.
-            Vector2 point = Random.insideUnitCircle * partyRadius;
-            Vector3 spawnPos = new Vector3(point.x, transform.position.y, point.y);
+        // #region Spawn Allies
+        // foreach (GameObject member in memberPrefabs)
+        // {
+        //     // Create a random spawn position for them within a radius.
+        //     Vector2 point = Random.insideUnitCircle * partyRadius;
+        //     Vector3 spawnPos = new Vector3(point.x, transform.position.y, point.y);
 
-            members.Add(Instantiate(member, spawnPos, Quaternion.identity));
-        }
-        #endregion
+        //     members.Add(Instantiate(member, spawnPos, Quaternion.identity));
+        // }
+        // #endregion
 
         leader = members[leaderIndex].GetComponent<AnimalController>();
         SetLeader();
@@ -87,7 +87,7 @@ public class PartyController : MonoBehaviour
 
     private void CycleLeader()
     {
-        this.leaderIndex = (this.leaderIndex + 1) % members.Count;
+        this.leaderIndex = (this.leaderIndex + 1) % members.Length;
         this.leader = members[this.leaderIndex].GetComponent<AnimalController>();
         AnimalChanged?.Invoke(this.leader);
         SetLeader();
@@ -126,7 +126,7 @@ public class PartyController : MonoBehaviour
     // Move the other animals within the radius of the leader
     public void MoveOthersCloser()
     {
-        for (int i = 0; i < members.Count; ++i)
+        for (int i = 0; i < members.Length; ++i)
         {
             GameObject member = members[i];
             if (i == leaderIndex)
