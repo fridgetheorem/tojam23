@@ -25,8 +25,10 @@ public class LynxController : AnimalController
         // We hit some collider
         // Do something with this information
         foreach ( Collider collider in hitColliders ){
-            if (!collider.GetComponent<CharacterController>()) return;
-            // Move all characters back to the edge of the circle
+            // If the layer is Fire, remove it
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Fire")){
+                collider.gameObject.GetComponentInParent<Fire>().DestroyFire();
+            }
         }
 
 
