@@ -11,6 +11,7 @@ public class EnemyController : AnimalController
     [SerializeField] private float aggroRange = 5f;
     [SerializeField] private float contactDamage = 1f;
     // Enemies are animals with their logic defined
+    private float deathFade = .8f;
 
 
     void Awake(){
@@ -20,6 +21,7 @@ public class EnemyController : AnimalController
         
         trigger.radius = aggroRange;
         movementController.radius = size;
+        Death += DeathBehaviour;
     }
 
     void LookForPlayer(){
@@ -51,6 +53,32 @@ public class EnemyController : AnimalController
 
         }
 
+    }
+
+    public void DeathBehaviour(){
+        Collider[] colliders = GetComponents<Collider>();
+        foreach(var collider in colliders){
+            Destroy(collider);
+        }
+        StartCoroutine(
+            FadeSelf(deathFade)
+        );
+    }
+
+    IEnumerator FadeSelf(float fadeDuration)
+    {
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        Color initialColor = spriteRenderer.color;
+        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
+
+        float elapsedTime = 0;
+        while (elapsedTime < fadeDuration){
+            elapsedTime += Time.deltaTime;
+            spriteRenderer.material.color = Color.Lerp(initialColor, targetColor, elapsedTime / fadeDuration);
+            yield return null;
+        }
+        Destroy(gameObject);
+        yield return null;
     }
 }
 
