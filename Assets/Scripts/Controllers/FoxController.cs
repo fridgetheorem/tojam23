@@ -17,10 +17,18 @@ public class FoxController : AnimalController
         DoDash();
     }
     void DoDash(){
-        movementController.Move(heading * speed * dashDistance * Time.deltaTime);
+        StartCoroutine(
+            Dash(heading.normalized*dashDistance, 0.8f)
+        );
     }
-    IEnumerator Dash()
+    IEnumerator Dash(Vector3 direction, float length)
     {
-        yield return
+        float elapsedTime = 0;
+        while (elapsedTime < length){
+            Move(direction * (Time.deltaTime * length), dashDistance);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
     }
 }
