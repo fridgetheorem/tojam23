@@ -11,12 +11,14 @@ using UnityEngine;
 // Damageable dudes
 public abstract class AnimalController : Health
 {
-    public CharacterController movementController;
+    [SerializeField] protected CharacterController movementController;
 
     [SerializeField] private float idleRadius = 2f;
 
-    [SerializeField] protected float speed = 10;
-    [SerializeField] protected float size = 1;
+    // should be properties not variables but... fuck it we ball
+    [SerializeField] public float speed = 10;
+    [SerializeField] public float size = 1;
+    [SerializeField] private Transform model;
 
     private float invulnerabilityTimer = 1f;
 
@@ -39,7 +41,7 @@ public abstract class AnimalController : Health
         collider.enabled = true;
     }
 
-    #if DEBUG
+#if DEBUG
     void Update(){
         bool interacting = Input.GetButtonDown("Fire1");
         // Interaction
@@ -54,15 +56,23 @@ public abstract class AnimalController : Health
         Move(motion, speed);
 
     }
-    #endif    
+#endif    
 
-    protected void Start()
+    protected void Awake()
     {
         movementController = GetComponent<CharacterController>();
     }
 
-    public void Move(Vector3 vector, float speed){
-        movementController.Move(vector * speed);
+    public virtual void Move(Vector3 vector, float speed){
+        Vector3 movementVector = vector.normalized * speed * Time.deltaTime;
+        movementController?.Move(movementVector);
+
+        Vector3 worldLookAt = new Vector3(
+            vector.normalized.x + transform.position.x, 
+            0, 
+            vector.normalized.z + transform.position.z
+        );
+
     }
 
     // INTERACT

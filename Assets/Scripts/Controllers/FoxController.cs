@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class FoxController : AnimalController
 {
-    public float dashDistance = 2;
+    public float dashDistance = 4;
+    private Vector3 heading;
+
+    public override void Move(Vector3 vector, float speed){
+        base.Move(vector, speed);
+        heading = vector;
+    }
 
     public override void Interact()
     {
         DoDash();
     }
     void DoDash(){
-        // Wait for movement info
+        movementController.Move(heading * speed * dashDistance * Time.deltaTime);
+    }
+    IEnumerator Dash()
+    {
+        yield return
     }
 }

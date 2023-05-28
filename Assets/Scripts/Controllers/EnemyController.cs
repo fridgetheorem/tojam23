@@ -16,8 +16,8 @@ public class EnemyController : AnimalController
 
     private PartyController player;
 
-    void Start(){
-        base.Start();
+    void Awake(){
+        base.Awake();
 
         trigger = GetComponent<SphereCollider>();
         model = GetComponent<CapsuleCollider>();
@@ -31,6 +31,7 @@ public class EnemyController : AnimalController
     }
 
     void OnTriggerEnter(Collider collider){
+        Debug.Log("TriggerEnter");
         if(!(player = collider.gameObject.GetComponent<PartyController>())) return;
         Debug.Log("The player has been found");
         // We have found the player...
