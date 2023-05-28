@@ -49,7 +49,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField]
     public float maxHealth = 10; // Provide default for rapid dev
 
-    protected virtual void BeDamaged(float dmg)
+    public virtual void BeDamaged(float dmg)
     {
         health -= dmg;
     }
