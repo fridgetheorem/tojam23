@@ -7,6 +7,8 @@ public class BearController : AnimalController
     public float hitDamage = 1;
     public float attackDistance = 1;
     public float attackRadius = 1;
+
+    [SerializeField] GameObject attackVisual;
     // Start is called before the first frame update
     public override void Interact()
     {
@@ -19,6 +21,8 @@ public class BearController : AnimalController
 # endif
         // Do a sphere cast?
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, attackRadius, transform.forward, attackDistance);
+        
+        //Destroy(Instantiate(attackVisual), .2f);
 
         // Damage each enemy 
         foreach (RaycastHit hit in hits){

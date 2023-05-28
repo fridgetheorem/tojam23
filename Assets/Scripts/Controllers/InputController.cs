@@ -15,9 +15,10 @@ public class InputController : MonoBehaviour
         party = GetComponent<PartyController>();
     }
     void Update(){
+        // Inverting inputes as a hacky fix for the camera
         Vector2 keyboardInput = new Vector2( 
-            Input.GetAxis("Horizontal"),
-            Input.GetAxis("Vertical")
+            -Input.GetAxis("Horizontal"),
+            -Input.GetAxis("Vertical")
         );
         if (!_canMove) keyboardInput = Vector2.zero;
         
