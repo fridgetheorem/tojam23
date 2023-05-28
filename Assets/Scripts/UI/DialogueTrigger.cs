@@ -6,13 +6,16 @@ using UnityEngine;
 Dialogue Implementation -
 Credits to Darren Tran
 */
+
+
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    public DialogueType type;
 
     void Start()
     {
-        if (dialogue.onEnd == true)
+        if (dialogue.type == DialogueType.Starting)
         {
             TriggerDialogue();
         }
@@ -21,5 +24,10 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        if (dialogue.type == DialogueType.Ending)
+        {
+            // Transition to credits.
+            // FindObjectOfType<PauseMenuUIManager>().StartFinalCutscene();
+        }
     }
 }

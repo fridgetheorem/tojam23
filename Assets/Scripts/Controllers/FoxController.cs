@@ -4,13 +4,59 @@ using UnityEngine;
 
 public class FoxController : AnimalController
 {
-    public float dashDistance = 2;
+    public float dashDistance = 4;
 
-    public override void Interact(GameObject target)
+    [SerializeField]
+    private float _dashCooldown = 1f;
+    private bool _canDash = true;
+
+    private bool _dashing = false;
+    private Vector3 heading;
+
+    public override void Move(Vector3 vector, float speed){
+        base.Move(vector, speed);
+        heading = vector;
+    }
+
+    public override void Interact()
     {
-        base.Interact(target);
+        DoDash();
     }
     void DoDash(){
-        // Wait for movement info
+        if (heading.magnitude > 0 && !_canDash) return;
+        _canDash = false;
+        InputController._canMove = false;
+        StartCoroutine(
+            Dash(heading.normalized*dashDistance, 0.5f)
+        );
+    }
+    IEnumerator Dash(Vector3 direction, float length)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < length){
+            Move(direction * (Time.deltaTime * length), dashDistance);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        OnDashEnd();
+        yield return null;
+    }
+
+    private void OnDashEnd  (){
+        InputController._canMove = true;
+        _canDash = false;
+        PartyController.followSpeed = dashDistance;
+        StartCoroutine(DashCooldown(_dashCooldown));    
+    }   
+
+    IEnumerator DashCooldown(float length)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < length){
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        _canDash = true;
+        yield return null;
     }
 }
