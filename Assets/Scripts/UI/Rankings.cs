@@ -15,7 +15,7 @@ public class Rankings : MonoBehaviour
     {
         _party = FindObjectOfType<PartyController>();
 
-        int difference = (int)Mathf.Max(transforms.Count - _party.members.Length, 0);
+        int difference = (int)Mathf.Max(transforms.Count - _party.members.Count, 0);
         for (int i = 0; i < difference; i++)
         {
             // Removes the position associated with this health bar.
