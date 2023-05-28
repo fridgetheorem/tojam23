@@ -25,8 +25,6 @@ public class PartyController : MonoBehaviour
         set { _followSpeed = value; }
     }
 
-// DISABLE OTHER PARTY HIT BOX WHEN HIT
-
     private void Start(){
         members = new List<GameObject>();
         // Spawn in all of our party members
@@ -53,6 +51,21 @@ public class PartyController : MonoBehaviour
         transform.parent = leader.transform;
         _virtualCamera.Follow = leader.transform;
 
+        setAnimalCollisions();
+    }
+
+    private void setAnimalCollisions(){
+        // Members still collide with members
+        foreach(GameObject member in members){
+            foreach(GameObject otherMember in members){
+                if (member != otherMember) Physics.IgnoreLayerCollision(member.gameObject.layer, otherMember.gameObject.layer, false);
+            }
+        }
+
+        // Leader doesn't collide with members      
+        foreach(GameObject member in members){
+            Physics.IgnoreLayerCollision(leader.gameObject.layer, member.gameObject.layer);
+        }
     }
     
 
