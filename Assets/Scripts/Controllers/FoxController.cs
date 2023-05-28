@@ -48,7 +48,7 @@ public class FoxController : AnimalController
     private void OnDashEnd  (){
         InputController._canMove = true;
         _canDash = false;
-        PartyController.followSpeed = dashDistance;
+        PartyController.followSpeed = dashDistance; 
         StartCoroutine(DashCooldown(_dashCooldown));    
     }   
 

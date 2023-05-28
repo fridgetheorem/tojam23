@@ -34,11 +34,7 @@ public class PartyController : MonoBehaviour
             Vector2 point = Random.insideUnitCircle * partyRadius;
             Vector3 spawnPos = new Vector3(point.x, transform.position.y, point.y);
 
-            // Random heading, just for funsies
-            float heading = Random.Range(0, 360);
-            Quaternion randomDirection = Quaternion.Euler(0, heading, 0);
-
-            members.Add(Instantiate(member, spawnPos, randomDirection));
+            members.Add(Instantiate(member, spawnPos, Quaternion.identity));
         }
         #endregion
 
@@ -79,6 +75,7 @@ public class PartyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _followSpeed = leader.speed;
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             CycleLeader();
         }
@@ -89,6 +86,12 @@ public class PartyController : MonoBehaviour
     public void Move(Vector2 movementInput){
         Vector3 translatedMovement = new Vector3(movementInput.x, 0, movementInput.y);
         leader?.Move(translatedMovement, leader.speed);
+
+        // Set each member animator state based on the most recent movement input
+        foreach(GameObject member in members){
+            member.GetComponentInChildren<Animator>().SetBool("left", movementInput.x < 0);
+            member.GetComponentInChildren<Animator>().SetBool("down", movementInput.y < 0);
+        }
     }
 
     public void Interact(){
