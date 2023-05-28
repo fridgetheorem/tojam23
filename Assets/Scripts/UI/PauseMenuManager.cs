@@ -20,6 +20,8 @@ public class PauseMenuManager : MonoBehaviour
     //public Animator finalCutscene; TODO end cutscene
     public Animator animator;
 
+    public AudioSource backgroundMusic;
+
     public bool paused = false;
 
     // void Awake()
@@ -63,6 +65,7 @@ public class PauseMenuManager : MonoBehaviour
         // quitButton.SetBool("isHidden", false);
         // menuButton.SetBool("isHidden", false);
         buttons.SetBool("isPaused", true);
+        backgroundMusic.Pause();
         paused = true;
     }
 
@@ -75,6 +78,7 @@ public class PauseMenuManager : MonoBehaviour
         buttons.SetBool("isPaused", false);
         pauseMenu.SetActive(false);
         //pauseButton.SetActive(true);
+        backgroundMusic.Play();
         paused = false;
     }
 
