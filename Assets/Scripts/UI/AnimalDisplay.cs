@@ -61,12 +61,12 @@ public class AnimalDisplay : MonoBehaviour
 
         do
         {
-            if (_party.members[i] == _animal)
+            if (_party.members[i].GetComponent<AnimalController>() == _animal)
             {
                 break;
             }
             i += 1;
-            i %= _party.members.Count; // To loop back to 0.
+            i %= _party.members.Length; // To loop back to 0.
             rank += 1;
         } while (i != _party.leaderIndex);
 
