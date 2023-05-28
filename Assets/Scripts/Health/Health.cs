@@ -46,12 +46,6 @@ public class Health : MonoBehaviour, IDamageable
 
     // -------- DEATH :( ------------------------
     [SerializeField] public float maxHealth = 10; // Provide default for rapid dev
-
-    protected virtual void BeDamaged(float dmg)
-    {
-        health -= dmg;
-    }
-
     void Start()
     {
         health = maxHealth;
@@ -72,5 +66,10 @@ public class Health : MonoBehaviour, IDamageable
     public void FullyHeal()
     {
         health = maxHealth;
+    }
+
+    public virtual void BeDamaged(float dmg)
+    {
+        health -= dmg;
     }
 }

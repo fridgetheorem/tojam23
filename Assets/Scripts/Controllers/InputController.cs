@@ -21,7 +21,7 @@ public class InputController : MonoBehaviour
         );
         if (!_canMove) keyboardInput = Vector2.zero;
         
-        if (keyboardInput.magnitude>0) party?.Move(keyboardInput);
+        if (keyboardInput.magnitude > 0) party?.Move(keyboardInput);
 
         bool input = Input.GetButtonDown("Action");
         if (input){
