@@ -8,6 +8,9 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     PartyController party;
+
+    public static bool _canMove = true;
+
     void Awake(){
         party = GetComponent<PartyController>();
     }
@@ -16,7 +19,9 @@ public class InputController : MonoBehaviour
             Input.GetAxis("Horizontal"),
             Input.GetAxis("Vertical")
         );
-        party?.Move(keyboardInput);
+        if (!_canMove) keyboardInput = Vector2.zero;
+        
+        if (keyboardInput.magnitude>0) party?.Move(keyboardInput);
 
         bool input = Input.GetButtonDown("Action");
         if (input){
