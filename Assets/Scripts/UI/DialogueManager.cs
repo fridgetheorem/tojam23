@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        playsound.GetComponent<AudioSource>().Stop();
+        //playsound.GetComponent<AudioSource>().Stop();
 
         while (!Input.GetKeyDown(KeyCode.Space))
             yield return null;

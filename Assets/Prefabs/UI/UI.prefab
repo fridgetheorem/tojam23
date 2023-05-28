@@ -434,8 +434,8 @@ MonoBehaviour:
   m_text: I'm a summa lumma dumma lumma you assuming im a human what i go to do to
     get it through to you im super human
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e22d517f6b13b804187c51dd6f094034, type: 2}
-  m_sharedMaterial: {fileID: -5622683010241522969, guid: e22d517f6b13b804187c51dd6f094034, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
+  m_sharedMaterial: {fileID: -6836504450775728845, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -459,8 +459,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 18.5
+  m_fontSizeBase: 18.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1859,8 +1859,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NPC Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e22d517f6b13b804187c51dd6f094034, type: 2}
-  m_sharedMaterial: {fileID: -5622683010241522969, guid: e22d517f6b13b804187c51dd6f094034, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
+  m_sharedMaterial: {fileID: -6836504450775728845, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1884,8 +1884,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20.06
+  m_fontSizeBase: 20.06
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2580,14 +2580,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.72156864}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 011fcd86ef0b8c744a82a2bd0f078254, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56c0cca32067c2a47996ad58dbd33bbe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3216,8 +3216,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: (SPACE) Continue >>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e22d517f6b13b804187c51dd6f094034, type: 2}
-  m_sharedMaterial: {fileID: -5622683010241522969, guid: e22d517f6b13b804187c51dd6f094034, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
+  m_sharedMaterial: {fileID: -6836504450775728845, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3241,8 +3241,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4045,7 +4045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224.4, y: -35.6}
+  m_AnchoredPosition: {x: 224.4, y: -33.2}
   m_SizeDelta: {x: 130.8851, y: 10.9238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7405650785210516712
