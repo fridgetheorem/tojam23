@@ -113,7 +113,7 @@ public class PartyController : MonoBehaviour
         // Set each member animator state based on the most recent movement input
         foreach (GameObject member in members)
         {
-            member.GetComponentInChildren<Animator>().SetBool("left", movementInput.x < 0);
+            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x > 0;
             member.GetComponentInChildren<Animator>().SetBool("down", movementInput.y < 0);
         }
     }

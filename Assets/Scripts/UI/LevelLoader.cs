@@ -11,6 +11,7 @@ public class LevelLoader : MonoBehaviour
     private float _transitionTime = 1f;
 
     IEnumerator LoadLevel(int levelIndex) {
+    
         transition.SetBool("Start", true);
         yield return new WaitForSeconds(_transitionTime);
         SceneManager.LoadScene(levelIndex);
