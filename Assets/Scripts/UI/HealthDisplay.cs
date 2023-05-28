@@ -18,7 +18,7 @@ public class HealthDisplay : MonoBehaviour
             Debug.LogWarning("Display and values are not fully defined in inspector.");
         }
 
-        // Subscribe to the delegates
+        // Subscribe to the health changing for this animal.
         if (_health)
         {
             _health.Death += OnDeath;
@@ -42,6 +42,12 @@ public class HealthDisplay : MonoBehaviour
     {
         // TODO: Implement league like damage dealt
         _display.value = newHealth;
+    }
+
+    public void Unsubscribe()
+    {
+        _health.Death -= OnDeath;
+        _health.HealthChanged -= OnHealthChanged;
     }
 
     // Update is called once per frame
