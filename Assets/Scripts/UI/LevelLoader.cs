@@ -11,11 +11,16 @@ public class LevelLoader : MonoBehaviour
     private float _transitionTime = 1f;
 
     // Update is called once per frame
-    void Update()
+    // void Update()
+    // {
+    //     if (Input.GetMouseButtonDown(0)) {
+    //         LoadNextLevel();
+    //     }
+    // }
+
+    public void StartGame()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            LoadNextLevel();
-        }
+        StartCoroutine(LoadLevel(1));
     }
 
     public void LoadNextLevel() {
