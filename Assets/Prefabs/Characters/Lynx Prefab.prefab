@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4499021645823511457, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6686316497295128358, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
       propertyPath: m_Name
@@ -170,6 +170,7 @@ MonoBehaviour:
   movementController: {fileID: 0}
   idleRadius: 2
   speed: 6
+  originalSpeed: 10
   size: 1
   model: {fileID: 4219278726321641163}
   screamRadius: 5
