@@ -61,7 +61,7 @@ public class AnimalDisplay : MonoBehaviour
 
         do
         {
-            if (_party.members[i] == _animal)
+            if (_party.members[i].GetComponent<AnimalController>() == _animal)
             {
                 break;
             }
