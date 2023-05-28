@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 677644357}
   - component: {fileID: 677644358}
   - component: {fileID: 677644359}
+  - component: {fileID: 677644360}
   m_Layer: 0
   m_Name: Lynx
   m_TagString: Untagged
@@ -283,9 +284,26 @@ MonoBehaviour:
   _health: 10
   maxHealth: 10
   movementController: {fileID: 677644358}
+  idleRadius: 2
   speed: 10
+  originalSpeed: 10
   size: 1
+  model: {fileID: 0}
   screamRadius: 5
+--- !u!136 &677644360
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677644356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &926484356
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +315,7 @@ GameObject:
   - component: {fileID: 926484357}
   - component: {fileID: 926484359}
   - component: {fileID: 926484358}
+  - component: {fileID: 926484360}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -334,8 +353,11 @@ MonoBehaviour:
   _health: 10
   maxHealth: 10
   movementController: {fileID: 926484359}
+  idleRadius: 2
   speed: 10
+  originalSpeed: 10
   size: 1
+  model: {fileID: 0}
   hitDamage: 1
   attackDistance: 1
   attackRadius: 1
@@ -357,6 +379,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &926484360
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926484356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1430160654
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +405,7 @@ GameObject:
   - component: {fileID: 1430160656}
   - component: {fileID: 1430160655}
   - component: {fileID: 1430160658}
+  - component: {fileID: 1430160659}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -391,9 +428,14 @@ MonoBehaviour:
   _health: 10
   maxHealth: 10
   movementController: {fileID: 1430160656}
+  idleRadius: 2
   speed: 10
+  originalSpeed: 10
   size: 1
+  model: {fileID: 0}
   dashDistance: 2
+  _dashDuration: 0.5
+  _dashCooldown: 1
 --- !u!143 &1430160656
 CharacterController:
   m_ObjectHideFlags: 0
@@ -445,6 +487,20 @@ MonoBehaviour:
   - {fileID: 1430160655}
   - {fileID: 926484358}
   - {fileID: 677644359}
+--- !u!136 &1430160659
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430160654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1467515053
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +532,6 @@ Transform:
   - {fileID: 1430160657}
   - {fileID: 926484357}
   - {fileID: 677644357}
-  - {fileID: 1774790719}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -563,37 +618,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1774790718
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1774790719}
-  m_Layer: 0
-  m_Name: PartyController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1774790719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774790718}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1467515054}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7405650784946783095
 PrefabInstance:

@@ -30,6 +30,7 @@ public class AnimalDisplay : MonoBehaviour
             Debug.LogWarning("No PartyController present in Scene");
         }
 
+        // Subscribe to party swapping for this animal.
         if (_party)
         {
             _party.AnimalChanged += OnAnimalChanged;
@@ -57,6 +58,7 @@ public class AnimalDisplay : MonoBehaviour
         // Find animals ranking using the AnimalController.
         int i = _party.leaderIndex;
         int rank = 0;
+
         do
         {
             if (_party.members[i] == _animal)
@@ -84,6 +86,11 @@ public class AnimalDisplay : MonoBehaviour
         }
         // Otherwise don't do anything for the animals and track the new leader.
         previousLeader = newLeader;
+    }
+
+    public void Unsubscribe()
+    {
+        _party.AnimalChanged -= OnAnimalChanged;
     }
 
     // Update is called once per frame
