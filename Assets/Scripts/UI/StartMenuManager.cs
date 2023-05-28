@@ -30,9 +30,17 @@ public class StartMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        animator.SetTrigger("TriggerTransition");
-        SceneManager.LoadScene(1); // Main game (scene will change)
+        StartCoroutine(LoadLevel(1));
+        // animator.SetTrigger("TriggerTransition");
+        // SceneManager.LoadScene(1); // Main game (scene will change)
     }
+
+    IEnumerator LoadLevel(int levelIndex) {
+        animator.SetTrigger("TriggerTransition");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(levelIndex); // Main game (scene will change)
+    }
+
 
     public void EndGame()
     {
