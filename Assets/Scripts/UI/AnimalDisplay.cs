@@ -44,6 +44,12 @@ public class AnimalDisplay : MonoBehaviour
         {
             Debug.LogWarning("Health Object not defined");
         }
+
+        // Assign first animal as special ability (already default health bar).
+        if (previousLeader == _animal) // Deselect its special ability.
+        {
+            specialAbility.SetBool("Selected", true);
+        }
     }
 
     void OnAnimalChanged(AnimalController newLeader)
