@@ -10,27 +10,34 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     private float _transitionTime = 1f;
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if (Input.GetMouseButtonDown(0)) {
-    //         LoadNextLevel();
-    //     }
-    // }
+    IEnumerator LoadLevel(int levelIndex) {
+        transition.SetBool("Start", true);
+        yield return new WaitForSeconds(_transitionTime);
+        SceneManager.LoadScene(levelIndex);
+    }
 
     public void StartGame()
     {
         StartCoroutine(LoadLevel(1));
     }
 
-    public void LoadNextLevel() {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    // public void LoadNextLevel() {
+    //     StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    // }
+
+    public void EndGame() {
+        // If we are running in a standalone build of the game
+        #if UNITY_STANDALONE
+        Application.Quit(); // Quit the application
+        #endif
+
+        // If we are running in the editor
+        #if UNITY_EDITOR
+        UnityEditor
+            .EditorApplication
+            .isPlaying = false; // Stop playing the scene
+        #endif
     }
 
-    IEnumerator LoadLevel(int levelIndex) {
-        transition.SetBool("Start", true);
-        yield return new WaitForSeconds(_transitionTime);
-        SceneManager.LoadScene(levelIndex);
-    }
 }
 
