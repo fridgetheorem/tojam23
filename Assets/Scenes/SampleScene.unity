@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.23055765, g: 0.2040262, b: 0.2131482, a: 1}
+  m_IndirectSpecularColor: {r: 0.23055768, g: 0.20402624, b: 0.2131482, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1196,11 +1196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7405650783216878180, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405650783216878180, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405650783853223424, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: _party
@@ -1220,11 +1220,11 @@ PrefabInstance:
       objectReference: {fileID: 1904926210}
     - target: {fileID: 7405650784005823761, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405650784005823761, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405650784192690626, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_RootOrder
@@ -1276,15 +1276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7405650784192690628, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7405650784442923887, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405650784442923887, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405650784723806814, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: _health

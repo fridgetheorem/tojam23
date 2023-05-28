@@ -52,7 +52,6 @@ public class PauseMenuManager : MonoBehaviour
 
     public void MainMenu()
     {
-        animator.SetTrigger("TriggerTransition");
         SceneManager.LoadScene(0);
     }
 
