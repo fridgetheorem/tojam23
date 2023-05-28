@@ -26,7 +26,7 @@ public class BearController : AnimalController
             Debug.Log("Hit", hit.collider.gameObject);
 # endif
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
-            damageable.BeDamaged(hitDamage);
+            damageable?.BeDamaged(hitDamage);
         }
     }
 }

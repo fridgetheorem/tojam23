@@ -3,64 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-[RequireComponent(typeof(CapsuleCollider))]
 public class EnemyController : AnimalController
 {
 
     SphereCollider trigger;
-    CapsuleCollider model;
     [SerializeField] private EnemyBehaviour behaviour = EnemyBehaviour.Aggressive;
     [SerializeField] private float aggroRange = 5f;
     [SerializeField] private float contactDamage = 1f;
     // Enemies are animals with their logic defined
 
-    private PartyController player;
 
     void Awake(){
         base.Awake();
 
         trigger = GetComponent<SphereCollider>();
-        model = GetComponent<CapsuleCollider>();
         
         trigger.radius = aggroRange;
-        model.radius = size;
+        movementController.radius = size;
     }
 
     void LookForPlayer(){
         // Collision bounding box(?)
     }
 
-    void OnTriggerEnter(Collider collider){
-        Debug.Log("TriggerEnter");
-        if(!(player = collider.gameObject.GetComponent<PartyController>())) return;
-        Debug.Log("The player has been found");
-        // We have found the player...
+    void OnTriggerStay(Collider collider){
+        PartyController party;
+        if(!(party = collider.gameObject.GetComponent<PartyController>())) return;
+        TrackPlayerRoutine(party);
     }
-    public new void FixedUpdate () {}
 
-    void OnCollisionEnter(Collision collision){
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+    void OnControllerColliderHit(ControllerColliderHit collision){
+        AnimalController damageable = collision.gameObject.GetComponent<AnimalController>();
         if(damageable == null) return;
-
-        // We have collided with something that can take damage, 
-        //      attempt to damage them.
-
         damageable.BeDamaged(contactDamage);
     }
 
-    void TrackPlayerRoutine(PartyController player){
+    void TrackPlayerRoutine(PartyController party){
         switch ( behaviour ){
             case EnemyBehaviour.Aggressive:
+                Move(party.transform.position - transform.position, speed);
                 break;
-            case EnemyBehaviour.Cowardly:
+            case EnemyBehaviour.Passive:
+                // Just do nothing
                 break;
-            case EnemyBehaviour.Smart:
+            default:
                 break;
 
         }
-
-    }
-    void AggressiveAction(){
 
     }
 }
@@ -68,6 +57,5 @@ public class EnemyController : AnimalController
 enum EnemyBehaviour 
 {
     Aggressive,
-    Cowardly,
-    Smart
+    Passive
 }

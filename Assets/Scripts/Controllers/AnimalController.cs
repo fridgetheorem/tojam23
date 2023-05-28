@@ -21,10 +21,11 @@ public abstract class AnimalController : Health
     [SerializeField] private Transform model;
 
     private float invulnerabilityTimer = 1f;
+    private bool invulnerable = false;
 
-    protected override void BeDamaged(float amount){
-        // Want there to be some level of invincibility
-        // Flash for 1 second type beat
+    public override void BeDamaged(float amount){
+        if (invulnerable) return;
+
         health -= amount;
         if (health <= 0) return;
 
@@ -32,13 +33,9 @@ public abstract class AnimalController : Health
     }
 
     protected IEnumerator BecomeInvincible(float time){
-        Collider collider = GetComponent<Collider>();
-        collider.enabled = false;
-
-        if(!collider) yield break;
+        invulnerable = true;
         yield return new WaitForSeconds(time);
-
-        collider.enabled = true;
+        invulnerable = false;
     }
 
 
