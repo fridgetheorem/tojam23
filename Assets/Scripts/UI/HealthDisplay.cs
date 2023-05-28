@@ -32,9 +32,10 @@ public class HealthDisplay : MonoBehaviour
 
     void OnDeath()
     {
-        Debug.Log("This animal has died.");
+        // // Remove this health bar and last ranking slot.
+        // List<RectTransform> tfs = FindObjectOfType<Rankings>().transforms;
+        // tfs.RemoveAt(tfs.Count - 1);
         // this.gameObject.SetActive(false);
-        // Don't know what to do here
     }
 
     void OnHealthChanged(float oldHealth, float newHealth)
