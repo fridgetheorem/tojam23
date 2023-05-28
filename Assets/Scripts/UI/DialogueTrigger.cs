@@ -11,7 +11,6 @@ Credits to Darren Tran
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    public DialogueType type;
 
     void Start()
     {
