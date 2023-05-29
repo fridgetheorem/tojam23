@@ -29,5 +29,11 @@ public class InputController : MonoBehaviour
             party?.Interact();
         }
 
+        bool changeMember = Input.GetButtonDown("Action");
+        if (Input.GetButtonDown("Swap"))
+        {
+            party.CycleLeader();
+        }
+
     }
 }

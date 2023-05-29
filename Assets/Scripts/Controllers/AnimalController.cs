@@ -20,8 +20,20 @@ public abstract class AnimalController : Health
     [SerializeField] public float size = 1;
     [SerializeField] private Transform model;
 
+
+    public Guid id{
+        get;
+        private set;
+    }
+
     private float invulnerabilityTimer = 1f;
     private bool invulnerable = false;
+
+    protected PartyController party;
+    
+    public void SetPartyAffiliation(PartyController party){
+        this.party = party;
+    }
 
     public override void BeDamaged(float amount){
         if (invulnerable) return;
@@ -61,6 +73,7 @@ public abstract class AnimalController : Health
     {
         movementController = GetComponent<CharacterController>();
         originalSpeed = speed;
+        id = new Guid();
     }
 
     public virtual void Move(Vector3 vector, float speed){
