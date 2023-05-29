@@ -173,13 +173,16 @@ public class PartyController : MonoBehaviour
             }
         }
     }
-    public void TeleportPartyMembersToLeader(){
+    // Radius is an optional parameter which describes how far they have to be from the leader before we tp
+    public void TeleportPartyMembersToLeader(float radius = 0f){
         for(int i = 0; i < members.Length; ++i){
-            if (i == leaderIndex) continue;
+            if (i == leaderIndex) 
+                continue;
+            if (radius > 0f && (members[i].transform.position - leader.transform.position).magnitude < radius) 
+                continue;
             // Randomly within a small unit circle around the player
             // BUT NOT INSIDE
             Vector2 point = (Random.insideUnitCircle * partyRadius/2) * 2; // Around world origin
-            Debug.Log("Leader is at:" + leader.transform.position);
             Vector3 teleportPos = new Vector3(
                 leader.transform.position.x + point.x, 
                 leader.transform.position.y, 
