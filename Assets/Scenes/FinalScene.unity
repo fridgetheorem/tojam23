@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1.3408294, g: 0.8058061, b: 0.12132438, a: 1}
+  m_IndirectSpecularColor: {r: 1.3410201, g: 0.80556726, b: 0.12129228, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2579,6 +2579,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8271145415922965690, guid: 2e022dd27ed250d4cbf0ff7235cffdaf, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9165639364373783769, guid: 2e022dd27ed250d4cbf0ff7235cffdaf, type: 3}
       propertyPath: m_Name
       value: Bear Prefab
@@ -2882,7 +2886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416450009749504297, guid: 2abacfa840ec18d4cba635ed459367b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.539
       objectReference: {fileID: 0}
     - target: {fileID: 7416450009749504297, guid: 2abacfa840ec18d4cba635ed459367b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3669,7 +3673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7972133444066898620, guid: 907f7a39f7a7f014aa8e5fae8c7e5e48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 7972133444066898620, guid: 907f7a39f7a7f014aa8e5fae8c7e5e48, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5185,6 +5189,7 @@ MonoBehaviour:
   - {fileID: 2064331031}
   - {fileID: 504440223}
   partyRadius: 3
+  maxPartyRadius: 10
   _virtualCamera: {fileID: 674528668}
 --- !u!114 &2022583777
 MonoBehaviour:

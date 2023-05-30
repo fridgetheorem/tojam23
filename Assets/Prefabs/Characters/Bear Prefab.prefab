@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2983322611828281123}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.473, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -131,8 +131,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7895820657432091962}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.18316317, y: -0.47399998, z: 0.029}
-  m_LocalScale: {x: 1.48, y: 1.2499999, z: 1}
+  m_LocalPosition: {x: 0.03, y: -0.4650001, z: 0}
+  m_LocalScale: {x: 1.48, y: 0.54, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3502911267719730223}
@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4499021645823511457, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
+      propertyPath: m_Center.y
+      value: -0.49
+      objectReference: {fileID: 0}
     - target: {fileID: 6686316497295128358, guid: 41689beff69edbb4887d3a22271dfe47, type: 3}
       propertyPath: m_Name
       value: Bear Prefab
@@ -288,3 +292,4 @@ MonoBehaviour:
   hitDamage: 1
   attackDistance: 1
   attackRadius: 1
+  attackVisual: {fileID: 0}
