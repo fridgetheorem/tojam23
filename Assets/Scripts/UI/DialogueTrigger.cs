@@ -11,6 +11,7 @@ Credits to Darren Tran
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    private bool triggered = false;
 
     void Start()
     {
@@ -28,5 +29,14 @@ public class DialogueTrigger : MonoBehaviour
             // Transition to credits.
             // FindObjectOfType<PauseMenuUIManager>().StartFinalCutscene();
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (triggered)
+            return;
+
+        TriggerDialogue();
+        triggered = true;
     }
 }

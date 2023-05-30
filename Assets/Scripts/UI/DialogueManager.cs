@@ -16,7 +16,10 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public AudioSource playsound;
 
-    private Queue<string> sentences;
+    private Queue<Sentence> sentences;
+
+    // Check if the user was pressing skip from the previous Dialogue sentence.
+    private bool skippingPrevious = false;
 
     public void FindAndStartDialogue(string dialogueName)
     {
@@ -28,16 +31,11 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", true);
-        // if (FindObjectOfType<PlayerController>() == true)
-        // {
-        //     FindObjectOfType<PlayerController>().FreezeInput(true);
-        // }
 
-        sentences = new Queue<string>();
-        nameText.text = dialogue.name;
+        sentences = new Queue<Sentence>();
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (Sentence sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -49,41 +47,45 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
-            playsound.GetComponent<AudioSource>().Stop();
             EndDialogue(dialogue);
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        Sentence sentence = sentences.Dequeue();
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence, dialogue));
     }
 
-    IEnumerator TypeSentence(string sentence, Dialogue dialogue)
+    IEnumerator TypeSentence(Sentence sentence, Dialogue dialogue)
     {
+        nameText.text = sentence.name;
         dialogueText.text = "";
 
         playsound.GetComponent<AudioSource>().Play();
 
-        foreach (char letter in sentence.ToCharArray())
+        foreach (char letter in sentence.text.ToCharArray())
         {
             dialogueText.text += letter;
-            if (Input.GetKey(KeyCode.Space))
+            if (!skippingPrevious && Input.GetKey(KeyCode.Space))
             {
-                yield return null;
+                dialogueText.text = sentence.text;
+                while (!Input.GetKeyUp(KeyCode.Space))
+                {
+                    yield return null;
+                }
+                skippingPrevious = true;
+                break;
             }
-            else
-            {
-                yield return new WaitForSeconds(0.04f);
-            }
+            skippingPrevious = Input.GetKey(KeyCode.Space);
+
+            yield return new WaitForSeconds(0.03f);
         }
 
-        //playsound.GetComponent<AudioSource>().Stop();
-
         while (!Input.GetKeyDown(KeyCode.Space))
+        {
             yield return null;
-
+        }
         yield return new WaitForSeconds(0.02f);
         DisplayNextSentence(dialogue);
     }
@@ -91,10 +93,5 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", false);
-
-        // if (FindObjectOfType<PlayerController>() == true)
-        // {
-        //     FindObjectOfType<PlayerController>().FreezeInput(false);
-        // }
     }
 }
