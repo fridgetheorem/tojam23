@@ -34,6 +34,7 @@ public class LevelLoader : MonoBehaviour
 
     public void EndGame()
     {
+        Debug.Log("nyeah eh");
         // If we are running in a standalone build of the game
 #if UNITY_STANDALONE
         Application.Quit(); // Quit the application

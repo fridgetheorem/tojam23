@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UITesting.unity
     guid: db0354ae43da89942b85c736c4a1eb89
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: d43bc2b2e83aa5c4bac06599e9eb0b3b
   m_configObjects: {}
