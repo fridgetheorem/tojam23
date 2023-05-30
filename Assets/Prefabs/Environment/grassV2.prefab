@@ -57,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 645bbb7a9d876894a938a94f2b4c0ead, type: 3}
     - target: {fileID: 6794657536619177795, guid: bdc104537ec439e48a369ba48ff68a83, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.38
+      value: 5.98
       objectReference: {fileID: 0}
     - target: {fileID: 8508766828830550552, guid: bdc104537ec439e48a369ba48ff68a83, type: 3}
       propertyPath: m_Name
-      value: Tree (2)
+      value: grassV2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc104537ec439e48a369ba48ff68a83, type: 3}

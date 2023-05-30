@@ -19,6 +19,8 @@ public class PartyController : MonoBehaviour
 
     [SerializeField]
     float partyRadius = 2f;
+    [SerializeField]
+    float maxPartyRadius = 10f;
 
     [SerializeField]
     CinemachineVirtualCamera _virtualCamera;
@@ -27,8 +29,8 @@ public class PartyController : MonoBehaviour
     public delegate void OnAnimalChange(AnimalController newLeader);
     public event OnAnimalChange AnimalChanged;
 
-    private static float _followSpeed = 2f;
-    public static float followSpeed
+    private float _followSpeed = 2f;
+    public float followSpeed
     {
         get { return _followSpeed; }
         set { _followSpeed = value; }
@@ -50,6 +52,9 @@ public class PartyController : MonoBehaviour
         // #endregion
 
         leader = members[leaderIndex].GetComponent<AnimalController>();
+        foreach(var member in members){
+            member.GetComponent<AnimalController>().SetPartyAffiliation(this);
+        }
         SetLeader();
     }
 
@@ -85,7 +90,7 @@ public class PartyController : MonoBehaviour
         }
     }
 
-    private void CycleLeader()
+    public void CycleLeader()
     {
         this.leaderIndex = (this.leaderIndex + 1) % members.Length;
         this.leader = members[this.leaderIndex].GetComponent<AnimalController>();
@@ -97,10 +102,10 @@ public class PartyController : MonoBehaviour
     void Update()
     {
         _followSpeed = leader.speed;
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            CycleLeader();
-        }
+        // if (Input.GetKeyDown(KeyCode.LeftShift))
+        // {
+        //     CycleLeader();
+        // }
 
         MoveOthersCloser();
     }
@@ -141,10 +146,48 @@ public class PartyController : MonoBehaviour
             // Get the relative position of the animal compared to me
             Vector3 distance = transform.position - member.transform.position;
 
-            if (distance.magnitude > partyRadius)
+            if (distance.magnitude > maxPartyRadius){
+                // Teleport them when they get too far
+                TeleportPartyMembersToLeader();
+            }
+            else if (distance.magnitude > partyRadius)
             {
                 member.GetComponent<AnimalController>().Move(distance, _followSpeed);
             }
+            else if (distance.magnitude > partyRadius/2)
+            {
+                // The party members slow down as they get closer, 
+                // just so that it looks a little more natural
+                member.GetComponent<AnimalController>().Move(distance, _followSpeed/3);
+            }
+        }
+    }
+    public void TeleportMemberToPosition(Vector3 position, int index){
+        // Simple teleport
+        members[index].transform.position = position;
+    }
+    public void TeleportMemberToPosition(Vector3 position, AnimalController member){
+        for (int i = 0; i<members.Length; ++i){
+            if(members[i].GetComponent<AnimalController>().id == member.id){
+                TeleportMemberToPosition(position, i);
+            }
+        }
+    }
+    // Radius is an optional parameter which describes how far they have to be from the leader before we tp
+    public void TeleportPartyMembersToLeader(float radius = 0f){
+        for(int i = 0; i < members.Length; ++i){
+            if (i == leaderIndex) 
+                continue;
+            if (radius > 0f && (members[i].transform.position - leader.transform.position).magnitude < radius) 
+                continue;
+            // Randomly within a small unit circle around the player
+            // BUT NOT INSIDE
+            Vector2 point = (Random.insideUnitCircle * partyRadius/2) * 2; // Around world origin
+            Vector3 teleportPos = new Vector3(
+                leader.transform.position.x + point.x, 
+                leader.transform.position.y, 
+                leader.transform.position.z + point.y);
+            TeleportMemberToPosition(teleportPos, i);
         }
     }
 }

@@ -15,6 +15,7 @@ public class FoxController : AnimalController
 
     private bool _dashing = false;
     private Vector3 heading;
+    private float _dashPartyTeleportDistance = 3f;
 
     public override void Move(Vector3 vector, float speed){
         base.Move(vector, speed);
@@ -28,7 +29,7 @@ public class FoxController : AnimalController
     void DoDash(){
         if (heading.magnitude > 0 && !_canDash) return;
         _canDash = false;
-        InputController._canMove = false;
+        InputController._inputEnabled = false;
         StartCoroutine(
             Dash(heading.normalized*dashDistance, _dashDuration)
         );
@@ -46,9 +47,10 @@ public class FoxController : AnimalController
     }
 
     private void OnDashEnd  (){
-        InputController._canMove = true;
+        party.TeleportPartyMembersToLeader(_dashPartyTeleportDistance);
+        InputController._inputEnabled = true;
         _canDash = false;
-        PartyController.followSpeed = dashDistance; 
+        party.followSpeed = dashDistance; 
         StartCoroutine(DashCooldown(_dashCooldown));    
     }   
 
