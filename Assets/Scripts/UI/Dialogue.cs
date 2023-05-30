@@ -17,8 +17,15 @@ public enum DialogueType // your custom enumeration
 public class Dialogue
 {
     public DialogueType type;
+
+    public List<Sentence> sentences;
+}
+
+[System.Serializable]
+public class Sentence
+{
     public string name;
 
-    [TextArea(3, 10)]
-    public string[] sentences;
+    [TextArea(3, 18)]
+    public string text;
 }
