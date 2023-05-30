@@ -20,6 +20,8 @@ public abstract class AnimalController : Health
     [SerializeField] public float size = 1;
     [SerializeField] private Transform model;
 
+    private float originalYPos;
+
 
     public Guid id{
         get;
@@ -30,6 +32,10 @@ public abstract class AnimalController : Health
     private bool invulnerable = false;
 
     protected PartyController party;
+
+    private void Start() {
+        originalYPos = transform.position.y;
+    }
     
     public void SetPartyAffiliation(PartyController party){
         this.party = party;
@@ -76,9 +82,14 @@ public abstract class AnimalController : Health
         id = new Guid();
     }
 
+    public void LockY() {
+        transform.position = new Vector3(transform.position.x, originalYPos, transform.position.z);
+    }
+
     public virtual void Move(Vector3 vector, float speed){
         Vector3 movementVector = vector.normalized * speed * Time.deltaTime;
         movementController?.Move(movementVector);
+        LockY();
 
         Vector3 worldLookAt = new Vector3(
             vector.normalized.x + transform.position.x, 
