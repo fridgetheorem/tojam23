@@ -18,18 +18,32 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<Sentence> sentences;
 
+    public delegate void OnLastDialogue();
+    public event OnLastDialogue LastDialog;
+
+    public delegate void OnGameOver();
+    public event OnGameOver GameOver;
+
+    public DialogueTrigger EndCutsceneDialog;
+
     // Check if the user was pressing skip from the previous Dialogue sentence.
     private bool skippingPrevious = false;
 
-    public void FindAndStartDialogue(string dialogueName)
+    public void TriggerDialogueObject(string dialogueObjectName)
     {
-        GameObject go = GameObject.Find(dialogueName);
+        GameObject go = GameObject.Find(dialogueObjectName);
         DialogueTrigger trigger = (DialogueTrigger)go.GetComponent(typeof(DialogueTrigger));
         trigger.TriggerDialogue();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        // Triggers the ending of the game.
+        if (dialogue.type == DialogueType.Ending)
+        {
+            LastDialog?.Invoke();
+        }
+
         animator.SetBool("isOpen", true);
 
         sentences = new Queue<Sentence>();
@@ -74,13 +88,14 @@ public class DialogueManager : MonoBehaviour
                 {
                     yield return null;
                 }
-                skippingPrevious = true;
                 break;
             }
             skippingPrevious = Input.GetKey(KeyCode.Space);
 
             yield return new WaitForSeconds(0.03f);
         }
+
+        skippingPrevious = true;
 
         while (!Input.GetKeyDown(KeyCode.Space))
         {
@@ -93,5 +108,11 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", false);
+
+        // Game is over
+        if (dialogue.type == DialogueType.Ending)
+        {
+            GameOver?.Invoke();
+        }
     }
 }

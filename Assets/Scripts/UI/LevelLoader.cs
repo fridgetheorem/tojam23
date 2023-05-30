@@ -20,6 +20,14 @@ public class LevelLoader : MenuManager
     void Start()
     {
         Time.timeScale = 1f;
+
+        // Subscribe the last dialogue
+        DialogueManager dm = FindObjectOfType<DialogueManager>();
+        if (dm)
+        {
+            dm.LastDialog += EndCutscene;
+            dm.GameOver += OnGameOver;
+        }
     }
 
     public void StartGame()
@@ -31,5 +39,22 @@ public class LevelLoader : MenuManager
     {
         Debug.Log("game ending caught");
         StartCoroutine(LoadLevel(0));
+    }
+
+    public void FadeToBlack()
+    {
+        transition.SetBool("Start", true);
+    }
+
+    public void FadeBackIn()
+    {
+        transition.SetBool("Start", false);
+    }
+
+    public void EndCutscene()
+    {
+        FadeToBlack();
+
+        Debug.Log("End Cutscene triggered");
     }
 }

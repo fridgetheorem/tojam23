@@ -605,7 +605,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Albert Cao\r\nCameron Hadfield\r\nJimmy Tan\r\nZuhab Wasim\r"
+  m_text: 'Albert Cao
+
+    Cameron Hadfield
+
+    Jimmy Tan
+
+    Valerie Roussel
+
+    Zuhab
+    Wasim'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
   m_sharedMaterial: {fileID: -6836504450775728845, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
@@ -632,7 +641,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59
+  m_fontSize: 46.7
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -979,10 +988,10 @@ RectTransform:
   m_Father: {fileID: 3921985303373364559}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7025625, y: 0.36200002}
+  m_AnchorMin: {x: 0.70100003, y: 0.41500002}
   m_AnchorMax: {x: 0.93700004, y: 0.5915927}
-  m_AnchoredPosition: {x: -0.8640137, y: 0.10131836}
-  m_SizeDelta: {x: 1.0695801, y: 0.25134277}
+  m_AnchoredPosition: {x: 0.80078125, y: 1.1176987}
+  m_SizeDelta: {x: -1.6011, y: -1.781601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3921985304410312901
 CanvasRenderer:
@@ -1012,11 +1021,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Double Aye
+  m_text: 'Daniel Little
 
-    Michelle Vu
+    Double Aye
 
-    Daniel Little'
+    Michelle Vu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
   m_sharedMaterial: {fileID: -6836504450775728845, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
@@ -1043,7 +1052,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 46.65
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
