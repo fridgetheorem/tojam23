@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+public class LevelLoader : MenuManager
 {
     public Animator transition;
 
@@ -22,28 +22,9 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(1));
     }
 
-    // public void LoadNextLevel() {
-    //     StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    // }
-
     public void OnGameOver()
     {
         Debug.Log("game ending caught");
         StartCoroutine(LoadLevel(0));
-    }
-
-    public void EndGame()
-    {
-        // If we are running in a standalone build of the game
-#if UNITY_STANDALONE
-        Application.Quit(); // Quit the application
-#endif
-
-        // If we are running in the editor
-#if UNITY_EDITOR
-        UnityEditor
-            .EditorApplication
-            .isPlaying = false; // Stop playing the scene
-#endif
     }
 }
