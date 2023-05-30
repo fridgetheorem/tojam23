@@ -17,6 +17,11 @@ public class LevelLoader : MenuManager
         SceneManager.LoadScene(levelIndex);
     }
 
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void StartGame()
     {
         StartCoroutine(LoadLevel(1));
