@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e127eb97d2d3a646ba3c88fa18ec3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  _health: 10
   maxHealth: 10
   movementController: {fileID: 0}
   idleRadius: 2
