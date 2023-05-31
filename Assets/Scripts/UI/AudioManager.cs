@@ -12,6 +12,8 @@ public enum AudioType // your custom enumeration
 
 public class AudioManager : MonoBehaviour
 {
+    public float defaultVolume = 0.5f;
+
     // Delegates that will be invoked on audio change.
     public delegate void OnBGMChange(float newAudio);
     public event OnBGMChange BGMChange;
@@ -22,11 +24,7 @@ public class AudioManager : MonoBehaviour
     public delegate void OnMenuChange(float newAudio);
     public event OnMenuChange MenuChange;
 
-    // Static values that stay consistent on scene changes.
-    public static float volumeBGM = 1f;
-    public static float volumeSFX = 1f;
-    public static float volumeMenu = 1f;
-
+    [Header("Sliders")]
     // Volume sliders
     [SerializeField]
     private Slider sliderBGM;
@@ -37,20 +35,50 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private Slider sliderMenu;
 
+    [Header("Misc")]
     [SerializeField]
     private Animator animator;
+
+    [SerializeField]
+    private GameObject settingsButton;
+
+    [SerializeField]
+    private bool hideUntilPaused = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetBGMChanges();
-        SetSFXChanges();
-        SetMenuChanges();
+        if (hideUntilPaused)
+        {
+            HideButton();
+            PauseMenuManager pmm = FindObjectOfType<PauseMenuManager>();
+            if (pmm)
+            {
+                pmm.GamePaused += ShowButton;
+                pmm.GameResumed += HideButton;
+                pmm.GameResumed += ClosePanel;
+            }
+        }
+    }
+
+    public void ShowButton()
+    {
+        settingsButton.SetActive(true);
+    }
+
+    public void HideButton()
+    {
+        settingsButton.SetActive(false);
     }
 
     public void TogglePanel()
     {
         animator.SetBool("Opened", !animator.GetBool("Opened"));
+    }
+
+    public void ClosePanel()
+    {
+        animator.SetBool("Opened", false);
     }
 
     public void SetBGMChanges()
@@ -66,5 +94,12 @@ public class AudioManager : MonoBehaviour
     public void SetMenuChanges()
     {
         MenuChange?.Invoke(sliderMenu.value);
+    }
+
+    public void SetAllAudioChanges()
+    {
+        SetBGMChanges();
+        SetSFXChanges();
+        SetMenuChanges();
     }
 }
