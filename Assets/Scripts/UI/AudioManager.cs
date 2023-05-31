@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum AudioType // your custom enumeration
 {
@@ -21,17 +22,49 @@ public class AudioManager : MonoBehaviour
     public delegate void OnMenuChange(float newAudio);
     public event OnMenuChange MenuChange;
 
-    public delegate void OnAudioChange(float newAudio);
-    public event OnAudioChange AudioChange;
-
     // Static values that stay consistent on scene changes.
     public static float volumeBGM = 1f;
     public static float volumeSFX = 1f;
     public static float volumeMenu = 1f;
 
-    // Start is called before the first frame update
-    void Start() { }
+    // Volume sliders
+    [SerializeField]
+    private Slider sliderBGM;
 
-    // Update is called once per frame
-    void Update() { }
+    [SerializeField]
+    private Slider sliderSFX;
+
+    [SerializeField]
+    private Slider sliderMenu;
+
+    [SerializeField]
+    private Animator animator;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        SetBGMChanges();
+        SetSFXChanges();
+        SetMenuChanges();
+    }
+
+    public void TogglePanel()
+    {
+        animator.SetBool("Opened", !animator.GetBool("Opened"));
+    }
+
+    public void SetBGMChanges()
+    {
+        BGMChange?.Invoke(sliderBGM.value);
+    }
+
+    public void SetSFXChanges()
+    {
+        SFXChange?.Invoke(sliderSFX.value);
+    }
+
+    public void SetMenuChanges()
+    {
+        MenuChange?.Invoke(sliderMenu.value);
+    }
 }

@@ -6,7 +6,6 @@ public class AudioAdjustable : MonoBehaviour
 {
     public AudioType audioType;
 
-    [SerializeField]
     private AudioManager audioManager;
 
     // Start is called before the first frame update
