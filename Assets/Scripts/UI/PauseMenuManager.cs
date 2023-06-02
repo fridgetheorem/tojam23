@@ -12,6 +12,11 @@ public class PauseMenuManager : MenuManager
 
     public bool paused = false;
 
+    public delegate void OnPause();
+    public event OnPause GamePaused;
+    public delegate void OnResume();
+    public event OnResume GameResumed;
+
     void Start()
     {
         Time.timeScale = 1;
@@ -23,14 +28,17 @@ public class PauseMenuManager : MenuManager
         pauseMenu.SetActive(true);
         backgroundMusic.Pause();
         paused = true;
+        GamePaused?.Invoke();
     }
 
     public void Resume()
     {
         Time.timeScale = 1.0f;
+
         pauseMenu.SetActive(false);
         backgroundMusic.Play();
         paused = false;
+        GameResumed?.Invoke();
     }
 
     public void Update()

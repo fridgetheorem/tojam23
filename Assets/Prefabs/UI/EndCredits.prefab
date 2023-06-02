@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2983927528814125747}
   - component: {fileID: 1838069809355978881}
+  - component: {fileID: 1008051485972571033}
   m_Layer: 0
   m_Name: ButtonClickAudio
   m_TagString: Untagged
@@ -128,6 +129,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1008051485972571033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505022823254425968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75414625d3925c340910cda4b1f41e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioType: 2
 --- !u!1 &3921985303114914733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0045208335, y: 0.92100006}
   m_AnchorMax: {x: 0.097645834, y: 1}
-  m_AnchoredPosition: {x: -0.50042725, y: 0}
+  m_AnchoredPosition: {x: -0.5003662, y: 0}
   m_SizeDelta: {x: 0.93566895, y: -1.7130127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3921985304724968476
