@@ -23,10 +23,6 @@ public abstract class AnimalController : Health
     private float originalYPos;
 
 
-    public Guid id{
-        get;
-        private set;
-    }
 
     private float invulnerabilityTimer = 1f;
     private bool invulnerable = false;
@@ -79,7 +75,6 @@ public abstract class AnimalController : Health
     {
         movementController = GetComponent<CharacterController>();
         originalSpeed = speed;
-        id = new Guid();
     }
 
     public void LockY() {
@@ -107,19 +102,5 @@ public abstract class AnimalController : Health
     }
     
 
-    #region Operators
-    //
-    public static bool operator ==(AnimalController leftHand, AnimalController rightHand){
-        // https://stackoverflow.com/questions/25007374/c-sharp-check-if-class-is-null-for-class-with-custom-operator
-        if(ReferenceEquals(leftHand, rightHand)) return true;
-        if(ReferenceEquals(leftHand, null) || ReferenceEquals(rightHand, null)) return false;
-        return leftHand.id == rightHand.id;  
-    }
-    public static bool operator !=(AnimalController leftHand, AnimalController rightHand){
-        if(!ReferenceEquals(leftHand, rightHand)) return true;
-        if(ReferenceEquals(leftHand, null) || ReferenceEquals(rightHand, null)) return false;
-        return leftHand.id != rightHand.id;  
-    }
-    #endregion
 
 }

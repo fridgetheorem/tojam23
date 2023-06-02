@@ -202,7 +202,7 @@ public class PartyController : MonoBehaviour
     }
     public bool IsInParty(AnimalController animal){
         for(int i = 0; i < members.Length; ++i){
-            if (members[i].GetComponent<AnimalController>().id == animal.id) return true;
+            if (members[i].GetComponent<AnimalController>() == animal) return true;
         }
         return false;
     }
