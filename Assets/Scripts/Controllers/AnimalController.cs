@@ -12,7 +12,7 @@ public abstract class AnimalController : Health
 {
     [SerializeField] protected CharacterController movementController;
 
-    [SerializeField] private float idleRadius = 2f;
+    //[SerializeField] private float idleRadius = 2f;
 
     // should be properties not variables but... fuck it we ball
     [SerializeField] public float speed = 10;
@@ -105,5 +105,21 @@ public abstract class AnimalController : Health
     public virtual void Interact (){
         throw new NotImplementedException();
     }
+    
+
+    #region Operators
+    //
+    public static bool operator ==(AnimalController leftHand, AnimalController rightHand){
+        // https://stackoverflow.com/questions/25007374/c-sharp-check-if-class-is-null-for-class-with-custom-operator
+        if(ReferenceEquals(leftHand, rightHand)) return true;
+        if(ReferenceEquals(leftHand, null) || ReferenceEquals(rightHand, null)) return false;
+        return leftHand.id == rightHand.id;  
+    }
+    public static bool operator !=(AnimalController leftHand, AnimalController rightHand){
+        if(!ReferenceEquals(leftHand, rightHand)) return true;
+        if(ReferenceEquals(leftHand, null) || ReferenceEquals(rightHand, null)) return false;
+        return leftHand.id != rightHand.id;  
+    }
+    #endregion
 
 }

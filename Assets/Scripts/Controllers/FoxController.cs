@@ -13,7 +13,7 @@ public class FoxController : AnimalController
     private float _dashCooldown = 1f;
     private bool _canDash = true;
 
-    private bool _dashing = false;
+    //private bool _dashing = false;
     private Vector3 heading;
     private float _dashPartyTeleportDistance = 3f;
 
@@ -47,7 +47,7 @@ public class FoxController : AnimalController
     }
 
     private void OnDashEnd  (){
-        party.TeleportPartyMembersToLeader(_dashPartyTeleportDistance);
+        //party.TeleportPartyMembersToLeader(_dashPartyTeleportDistance);
         InputController._inputEnabled = true;
         _canDash = false;
         party.followSpeed = dashDistance; 
