@@ -1,3 +1,5 @@
+#undef DEBUG
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,8 +31,16 @@ public class BearController : AnimalController
 # if DEBUG
             Debug.Log("Hit", hit.collider.gameObject);
 # endif
-            IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
-            damageable?.BeDamaged(hitDamage);
+            IDamageable animal = hit.collider.GetComponent<IDamageable>();
+            if(
+                animal is AnimalController 
+                && PartyController.playerParty.IsInParty((AnimalController)animal)
+                )
+            {
+                // Maybe we want a better solution for this in the future, but for now it works
+                return;
+            } 
+            animal?.BeDamaged(hitDamage);
         }
     }
 }

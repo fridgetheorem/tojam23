@@ -35,6 +35,7 @@ public class PartyController : MonoBehaviour
 
     public static PartyController playerParty;
 
+    [SerializeField]
     private PartyBehaviour _behaviour = PartyBehaviour.Follow;
     public PartyBehaviour behaviour{
         get{ return _behaviour; }
