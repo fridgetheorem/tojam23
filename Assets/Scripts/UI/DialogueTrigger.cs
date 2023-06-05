@@ -36,6 +36,11 @@ public class DialogueTrigger : MonoBehaviour
         if (triggered)
             return;
 
+        if (other.gameObject.GetComponent<AnimalController>() == null)
+        {
+            return;
+        }
+
         TriggerDialogue();
         triggered = true;
     }
