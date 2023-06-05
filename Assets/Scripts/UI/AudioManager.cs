@@ -55,8 +55,10 @@ public class AudioManager : MonoBehaviour
             if (pmm)
             {
                 pmm.GamePaused += ShowButton;
+                pmm.GamePaused += ShowPanel;
                 pmm.GameResumed += HideButton;
                 pmm.GameResumed += ClosePanel;
+                pmm.GameResumed += HidePanel;
             }
         }
     }
@@ -79,6 +81,18 @@ public class AudioManager : MonoBehaviour
     public void ClosePanel()
     {
         animator.SetBool("Opened", false);
+    }
+
+    public void ShowPanel()
+    {
+        GetComponent<CanvasGroup>().interactable = true;
+        GetComponent<CanvasGroup>().alpha = 1f;
+    }
+
+    public void HidePanel()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GetComponent<CanvasGroup>().alpha = 0f;
     }
 
     public void SetBGMChanges()
