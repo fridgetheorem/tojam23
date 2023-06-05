@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
+public enum PartyBehaviour{
+    Follow,
+    Independent
+}
 public class PartyController : MonoBehaviour
 {
     // Attributes
@@ -29,6 +33,15 @@ public class PartyController : MonoBehaviour
     public delegate void OnAnimalChange(AnimalController newLeader);
     public event OnAnimalChange AnimalChanged;
 
+    public static PartyController playerParty;
+
+    [SerializeField]
+    private PartyBehaviour _behaviour = PartyBehaviour.Follow;
+    public PartyBehaviour behaviour{
+        get{ return _behaviour; }
+        set{ _behaviour = value; }
+    }
+
     private float _followSpeed = 2f;
     public float followSpeed
     {
@@ -50,6 +63,7 @@ public class PartyController : MonoBehaviour
         //     members.Add(Instantiate(member, spawnPos, Quaternion.identity));
         // }
         // #endregion
+        playerParty = this;
 
         leader = members[leaderIndex].GetComponent<AnimalController>();
         foreach(var member in members){
@@ -101,13 +115,14 @@ public class PartyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _followSpeed = leader.speed;
         // if (Input.GetKeyDown(KeyCode.LeftShift))
         // {
         //     CycleLeader();
         // }
-
-        MoveOthersCloser();
+        if ( _behaviour == PartyBehaviour.Follow ){
+            _followSpeed = leader.speed;
+            MoveOthersCloser();
+        }
     }
 
     public void Move(Vector2 movementInput)
@@ -163,18 +178,14 @@ public class PartyController : MonoBehaviour
         }
     }
     public void TeleportMemberToPosition(Vector3 position, int index){
-        // Simple teleport
-        members[index].transform.position = position;
+        TeleportMemberToPosition(position, members[index].GetComponent<AnimalController>());
     }
     public void TeleportMemberToPosition(Vector3 position, AnimalController member){
-        for (int i = 0; i<members.Length; ++i){
-            if(members[i].GetComponent<AnimalController>().id == member.id){
-                TeleportMemberToPosition(position, i);
-            }
-        }
+        member.transform.position = position;
     }
     // Radius is an optional parameter which describes how far they have to be from the leader before we tp
     public void TeleportPartyMembersToLeader(float radius = 0f){
+        Debug.Log("Teleporting to:" + leader.transform.position);
         for(int i = 0; i < members.Length; ++i){
             if (i == leaderIndex) 
                 continue;
@@ -189,5 +200,11 @@ public class PartyController : MonoBehaviour
                 leader.transform.position.z + point.y);
             TeleportMemberToPosition(teleportPos, i);
         }
+    }
+    public bool IsInParty(AnimalController animal){
+        for(int i = 0; i < members.Length; ++i){
+            if (members[i].GetComponent<AnimalController>() == animal) return true;
+        }
+        return false;
     }
 }

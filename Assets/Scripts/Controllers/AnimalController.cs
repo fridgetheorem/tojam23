@@ -12,7 +12,7 @@ public abstract class AnimalController : Health
 {
     [SerializeField] protected CharacterController movementController;
 
-    [SerializeField] private float idleRadius = 2f;
+    //[SerializeField] private float idleRadius = 2f;
 
     // should be properties not variables but... fuck it we ball
     [SerializeField] public float speed = 10;
@@ -23,10 +23,6 @@ public abstract class AnimalController : Health
     private float originalYPos;
 
 
-    public Guid id{
-        get;
-        private set;
-    }
 
     private float invulnerabilityTimer = 1f;
     private bool invulnerable = false;
@@ -79,7 +75,6 @@ public abstract class AnimalController : Health
     {
         movementController = GetComponent<CharacterController>();
         originalSpeed = speed;
-        id = new Guid();
     }
 
     public void LockY() {
@@ -105,5 +100,7 @@ public abstract class AnimalController : Health
     public virtual void Interact (){
         throw new NotImplementedException();
     }
+    
+
 
 }
