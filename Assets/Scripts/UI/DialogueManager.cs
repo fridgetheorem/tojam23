@@ -10,9 +10,9 @@ Credits to Darren Tran
 */
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Object References")]
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-
     public Animator animator;
     public AudioSource playsound;
 
@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
 
     // Check if the user was pressing skip from the previous Dialogue sentence.
     private bool skippingPrevious = false;
+
+    private float nextDialogueTimer = 3f;
 
     public void TriggerDialogueObject(string dialogueObjectName)
     {
@@ -96,9 +98,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         skippingPrevious = true;
+        nextDialogueTimer = 3f;
 
-        while (!Input.GetKeyDown(KeyCode.Space))
+        while (!Input.GetKeyDown(KeyCode.Space) && nextDialogueTimer > 0)
         {
+            nextDialogueTimer -= Time.deltaTime;
             yield return null;
         }
         yield return new WaitForSeconds(0.02f);
