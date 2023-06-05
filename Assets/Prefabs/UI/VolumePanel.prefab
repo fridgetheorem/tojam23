@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 132479367123659515}
   - component: {fileID: 132479367123659517}
   - component: {fileID: 132479367123659518}
+  - component: {fileID: 7747746174958838108}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -390,6 +391,18 @@ MonoBehaviour:
   animator: {fileID: 132479367123659517}
   settingsButton: {fileID: 132479367903100761}
   hideUntilPaused: 0
+--- !u!225 &7747746174958838108
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132479367123659513}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &132479367903100761
 GameObject:
   m_ObjectHideFlags: 0
