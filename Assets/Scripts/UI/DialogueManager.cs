@@ -19,12 +19,10 @@ public class DialogueManager : MonoBehaviour
     private Queue<Sentence> sentences;
 
     public delegate void OnLastDialogue();
-    public event OnLastDialogue LastDialog;
+    public event OnLastDialogue LastDialogue;
 
     public delegate void OnGameOver();
     public event OnGameOver GameOver;
-
-    public DialogueTrigger EndCutsceneDialog;
 
     // Check if the user was pressing skip from the previous Dialogue sentence.
     private bool skippingPrevious = false;
@@ -43,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         // Triggers the ending of the game.
         if (dialogue.type == DialogueType.Ending)
         {
-            LastDialog?.Invoke();
+            LastDialogue?.Invoke();
         }
 
         animator.SetBool("isOpen", true);

@@ -1571,6 +1571,7 @@ GameObject:
   - component: {fileID: 7405650783853223438}
   - component: {fileID: 7405650783853223439}
   - component: {fileID: 7405650783853223424}
+  - component: {fileID: 2116326204394729123}
   m_Layer: 5
   m_Name: HealthBarBear
   m_TagString: Untagged
@@ -1678,11 +1679,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9ead341bbd1f34b8ae28f90ad451dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthObj: {fileID: 7405650783853223426}
-  _animal: {fileID: 0}
-  _party: {fileID: 0}
+  animal: {fileID: 0}
   specialAbility: {fileID: 7405650784234250591}
-  previousLeader: {fileID: 0}
+  canvas: {fileID: 2116326204394729123}
+--- !u!225 &2116326204394729123
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7405650783853223426}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7405650783929411484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3109,7 @@ GameObject:
   - component: {fileID: 7405650784723806813}
   - component: {fileID: 7405650784723806814}
   - component: {fileID: 7405650784723806815}
+  - component: {fileID: 431926324040756323}
   m_Layer: 5
   m_Name: HealthBarFox
   m_TagString: Untagged
@@ -3205,11 +3217,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9ead341bbd1f34b8ae28f90ad451dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthObj: {fileID: 7405650784723806801}
-  _animal: {fileID: 0}
-  _party: {fileID: 0}
+  animal: {fileID: 0}
   specialAbility: {fileID: 7405650783996517988}
-  previousLeader: {fileID: 0}
+  canvas: {fileID: 431926324040756323}
+--- !u!225 &431926324040756323
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7405650784723806801}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7405650784782557167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,7 +3277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634453059042001099}
-  - component: {fileID: 7405650784795568055}
+  - component: {fileID: 8446780915706278875}
   m_Layer: 0
   m_Name: AnimalDisplays
   m_TagString: Untagged
@@ -3285,7 +3307,7 @@ RectTransform:
   m_AnchoredPosition: {x: 128.41241, y: -89.617645}
   m_SizeDelta: {x: -700, y: -350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7405650784795568055
+--- !u!114 &8446780915706278875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3294,9 +3316,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7405650784795568073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2c135fd626ef4745800e967a5543e02, type: 3}
+  m_Script: {fileID: 11500000, guid: abd08c89b44d1484aa433c104f832f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _party: {fileID: 0}
   transforms:
   - {fileID: 7405650784633950000}
   - {fileID: 7405650784782557166}
@@ -3305,6 +3328,12 @@ MonoBehaviour:
   - {fileID: 7405650784723806801}
   - {fileID: 7405650783853223426}
   - {fileID: 7405650784821078899}
+  displays:
+  - {fileID: 7405650784723806815}
+  - {fileID: 7405650783853223424}
+  - {fileID: 7405650784821078897}
+  _partySynced: 0
+  _partySyncZone: {fileID: 0}
 --- !u!1 &7405650784800024435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,6 +3481,7 @@ GameObject:
   - component: {fileID: 7405650784821078911}
   - component: {fileID: 7405650784821078896}
   - component: {fileID: 7405650784821078897}
+  - component: {fileID: 2942728574452217985}
   m_Layer: 5
   m_Name: HealthBarLynx
   m_TagString: Untagged
@@ -3559,11 +3589,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9ead341bbd1f34b8ae28f90ad451dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthObj: {fileID: 7405650784821078899}
-  _animal: {fileID: 0}
-  _party: {fileID: 0}
+  animal: {fileID: 0}
   specialAbility: {fileID: 7405650783091896625}
-  previousLeader: {fileID: 0}
+  canvas: {fileID: 2942728574452217985}
+--- !u!225 &2942728574452217985
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7405650784821078899}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7405650784851343809
 GameObject:
   m_ObjectHideFlags: 0

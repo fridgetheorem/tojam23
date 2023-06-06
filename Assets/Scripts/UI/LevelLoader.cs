@@ -10,6 +10,8 @@ public class LevelLoader : MenuManager
     [SerializeField]
     private float _transitionTime = 1f;
 
+    private DialogueManager dialogueManager;
+
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetBool("Start", true);
@@ -22,11 +24,11 @@ public class LevelLoader : MenuManager
         Time.timeScale = 1f;
 
         // Subscribe the last dialogue
-        DialogueManager dm = FindObjectOfType<DialogueManager>();
-        if (dm)
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        if (dialogueManager)
         {
-            dm.LastDialog += EndCutscene;
-            dm.GameOver += OnGameOver;
+            dialogueManager.LastDialogue += EndCutscene;
+            dialogueManager.GameOver += OnGameOver;
         }
     }
 
@@ -56,5 +58,14 @@ public class LevelLoader : MenuManager
         FadeToBlack();
 
         Debug.Log("End Cutscene triggered");
+    }
+
+    void Destroy()
+    {
+        if (dialogueManager)
+        {
+            dialogueManager.LastDialogue -= EndCutscene;
+            dialogueManager.GameOver -= OnGameOver;
+        }
     }
 }
