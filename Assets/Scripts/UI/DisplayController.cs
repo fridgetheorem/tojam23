@@ -14,7 +14,7 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     private PartySyncZone _partySyncZone;
 
-    public DialogueTrigger DeathDialogue;
+    public DialogueTrigger deathDialogue;
 
     // Record health bar transforms
     [Header("")]
@@ -44,7 +44,7 @@ public class DisplayController : MonoBehaviour
         // Allow for death.
         for (int i = 0; i < transforms.Count; i++)
         {
-            healthObj[i].GetComponent<Health>().Death += OnDeath;
+            healthObj[i].GetComponent<HealthDisplay>()._health.Death += OnDeath;
         }
 
         int difference = (int)Mathf.Max(transforms.Count - _party.members.Length, 0);
@@ -76,7 +76,11 @@ public class DisplayController : MonoBehaviour
 
     void OnDeath()
     {
-        DeathDialogue.TriggerDialogue();
+        if (deathDialogue)
+        {
+            deathDialogue.TriggerDialogue();
+        }
+        Debug.Log("Oof");
     }
 
     void OnPartySynced()
@@ -133,7 +137,7 @@ public class DisplayController : MonoBehaviour
         }
         for (int i = 0; i < transforms.Count; i++)
         {
-            healthObj[i].GetComponent<Health>().Death -= OnDeath;
+            healthObj[i].GetComponent<HealthDisplay>()._health.Death += OnDeath;
         }
     }
 }

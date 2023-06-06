@@ -3791,6 +3791,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1233013046}
     - target: {fileID: 8446780915706278875, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
+      propertyPath: deathDialogue
+      value: 
+      objectReference: {fileID: 1446530886}
+    - target: {fileID: 8446780915706278875, guid: dd88cd39702883a49907e19e97ef87f8, type: 3}
       propertyPath: _partySyncZone
       value: 
       objectReference: {fileID: 896678000}
@@ -3987,6 +3991,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 314d02214ed7d6f45a194f973c8ce428, type: 3}
+--- !u!114 &1446530886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1674957183826837561, guid: acd4b21f45ad3824095480ec9fb4ca07, type: 3}
+  m_PrefabInstance: {fileID: 215334972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71689f95139113944bc46a96f50ce28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1463506599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8619566189518651777, guid: 3383ae549c697bc459e10e09ea790743, type: 3}
