@@ -30,13 +30,7 @@ public class HealthDisplay : MonoBehaviour
         }
     }
 
-    void OnDeath()
-    {
-        // // Remove this health bar and last ranking slot.
-        // List<RectTransform> tfs = FindObjectOfType<Rankings>().transforms;
-        // tfs.RemoveAt(tfs.Count - 1);
-        // this.gameObject.SetActive(false);
-    }
+    void OnDeath() { }
 
     void OnHealthChanged(float oldHealth, float newHealth)
     {
@@ -52,4 +46,13 @@ public class HealthDisplay : MonoBehaviour
 
     // Update is called once per frame
     void Update() { }
+
+    void Destroy()
+    {
+        if (_health)
+        {
+            _health.Death -= OnDeath;
+            _health.HealthChanged -= OnHealthChanged;
+        }
+    }
 }
