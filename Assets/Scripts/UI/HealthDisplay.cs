@@ -10,6 +10,8 @@ public class HealthDisplay : MonoBehaviour
 
     public Health _health; // Health bar in code
 
+    public SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,22 @@ public class HealthDisplay : MonoBehaviour
     {
         // TODO: Implement league like damage dealt
         _display.value = newHealth;
+
+        if (sprite == null)
+        {
+            return;
+        }
+        sprite.color = Color.white;
+        StopCoroutine(TakeDamage());
+        StartCoroutine(TakeDamage());
+    }
+
+    IEnumerator TakeDamage()
+    {
+        yield return new WaitForSeconds(0.05f);
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = Color.white;
     }
 
     public void Unsubscribe()
