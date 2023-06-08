@@ -3,56 +3,66 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-
 // Damageable dudes
 public abstract class AnimalController : Health
 {
-    [SerializeField] protected CharacterController movementController;
+    [SerializeField]
+    protected CharacterController movementController;
 
     //[SerializeField] private float idleRadius = 2f;
 
     // should be properties not variables but... fuck it we ball
-    [SerializeField] public float speed = 10;
+    [SerializeField]
+    public float speed = 10;
     public float originalSpeed = 10f;
-    [SerializeField] public float size = 1;
-    [SerializeField] private Transform model;
+
+    [SerializeField]
+    public float size = 1;
+
+    [SerializeField]
+    private Transform model;
+
+    public CinemachineVirtualCamera virtualCamera;
 
     private float originalYPos;
-
-
 
     private float invulnerabilityTimer = 1f;
     private bool invulnerable = false;
 
     protected PartyController party;
 
-    private void Start() {
+    private void Start()
+    {
         originalYPos = transform.position.y;
     }
-    
-    public void SetPartyAffiliation(PartyController party){
+
+    public void SetPartyAffiliation(PartyController party)
+    {
         this.party = party;
     }
 
-    public override void BeDamaged(float amount){
-        if (invulnerable) return;
+    public override void BeDamaged(float amount)
+    {
+        if (invulnerable)
+            return;
 
         health -= amount;
-        if (health <= 0) return;
+        if (health <= 0)
+            return;
 
         StartCoroutine(BecomeInvincible(invulnerabilityTimer));
     }
 
-    protected IEnumerator BecomeInvincible(float time){
+    protected IEnumerator BecomeInvincible(float time)
+    {
         invulnerable = true;
         yield return new WaitForSeconds(time);
         invulnerable = false;
     }
-
-
 
 #if DEBUG
     void Update(){
@@ -69,7 +79,7 @@ public abstract class AnimalController : Health
         Move(motion, speed);
 
     }
-#endif    
+#endif
 
     protected void Awake()
     {
@@ -77,30 +87,29 @@ public abstract class AnimalController : Health
         originalSpeed = speed;
     }
 
-    public void LockY() {
+    public void LockY()
+    {
         transform.position = new Vector3(transform.position.x, originalYPos, transform.position.z);
     }
 
-    public virtual void Move(Vector3 vector, float speed){
+    public virtual void Move(Vector3 vector, float speed)
+    {
         Vector3 movementVector = vector.normalized * speed * Time.deltaTime;
         movementController?.Move(movementVector);
         LockY();
 
         Vector3 worldLookAt = new Vector3(
-            vector.normalized.x + transform.position.x, 
-            0, 
+            vector.normalized.x + transform.position.x,
+            0,
             vector.normalized.z + transform.position.z
         );
-
     }
 
     // INTERACT
     // The special ability implemented by each animal
     // To be overridden by each animal type
-    public virtual void Interact (){
+    public virtual void Interact()
+    {
         throw new NotImplementedException();
     }
-    
-
-
 }

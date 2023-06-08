@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PartySyncZone : MonoBehaviour
 {
@@ -73,8 +74,17 @@ public class PartySyncZone : MonoBehaviour
                 }
             );
         }
-
         animalsToSync.Clear();
+
+        // Update Camera properties.
+        CinemachineBrain mainCamera = GameObject
+            .FindGameObjectWithTag("MainCamera")
+            .GetComponent<CinemachineBrain>();
+
+        mainCamera.m_DefaultBlend = new CinemachineBlendDefinition(
+            CinemachineBlendDefinition.Style.HardOut,
+            1f
+        );
 
         PartySynced?.Invoke();
     }
