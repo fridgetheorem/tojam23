@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public enum PartyBehaviour{
+public enum PartyBehaviour
+{
     Follow,
     Independent
 }
+
 public class PartyController : MonoBehaviour
 {
     // Attributes
@@ -23,11 +25,9 @@ public class PartyController : MonoBehaviour
 
     [SerializeField]
     float partyRadius = 2f;
-    [SerializeField]
-    float maxPartyRadius = 10f;
 
     [SerializeField]
-    CinemachineVirtualCamera _virtualCamera;
+    float maxPartyRadius = 10f;
 
     // Events
     public delegate void OnAnimalChange(AnimalController newLeader);
@@ -37,9 +37,10 @@ public class PartyController : MonoBehaviour
 
     [SerializeField]
     private PartyBehaviour _behaviour = PartyBehaviour.Follow;
-    public PartyBehaviour behaviour{
-        get{ return _behaviour; }
-        set{ _behaviour = value; }
+    public PartyBehaviour behaviour
+    {
+        get { return _behaviour; }
+        set { _behaviour = value; }
     }
 
     private float _followSpeed = 2f;
@@ -66,7 +67,8 @@ public class PartyController : MonoBehaviour
         playerParty = this;
 
         leader = members[leaderIndex].GetComponent<AnimalController>();
-        foreach(var member in members){
+        foreach (var member in members)
+        {
             member.GetComponent<AnimalController>().SetPartyAffiliation(this);
         }
         SetLeader();
@@ -76,8 +78,10 @@ public class PartyController : MonoBehaviour
     {
         transform.SetPositionAndRotation(leader.transform.position, Quaternion.identity);
         transform.parent = leader.transform;
-        _virtualCamera.Follow = leader.transform;
 
+        // Re-enabling leader's virtual camera focuses it (since they all have equal priority.)
+        leader.virtualCamera.gameObject.SetActive(false);
+        leader.virtualCamera.gameObject.SetActive(true);
         setAnimalCollisions();
     }
 
@@ -119,7 +123,8 @@ public class PartyController : MonoBehaviour
         // {
         //     CycleLeader();
         // }
-        if ( _behaviour == PartyBehaviour.Follow ){
+        if (_behaviour == PartyBehaviour.Follow)
+        {
             _followSpeed = leader.speed;
             MoveOthersCloser();
         }
@@ -129,7 +134,6 @@ public class PartyController : MonoBehaviour
     {
         Vector3 translatedMovement = new Vector3(movementInput.x, 0, movementInput.y);
         leader?.Move(translatedMovement, leader.speed);
-
 
         // Set each member animator state based on the most recent movement input
         foreach (GameObject member in members)
@@ -161,7 +165,8 @@ public class PartyController : MonoBehaviour
             // Get the relative position of the animal compared to me
             Vector3 distance = transform.position - member.transform.position;
 
-            if (distance.magnitude > maxPartyRadius){
+            if (distance.magnitude > maxPartyRadius)
+            {
                 // Teleport them when they get too far
                 TeleportPartyMembersToLeader();
             }
@@ -169,41 +174,56 @@ public class PartyController : MonoBehaviour
             {
                 member.GetComponent<AnimalController>().Move(distance, _followSpeed);
             }
-            else if (distance.magnitude > partyRadius/2)
+            else if (distance.magnitude > partyRadius / 2)
             {
-                // The party members slow down as they get closer, 
+                // The party members slow down as they get closer,
                 // just so that it looks a little more natural
-                member.GetComponent<AnimalController>().Move(distance, _followSpeed/3);
+                member.GetComponent<AnimalController>().Move(distance, _followSpeed / 3);
             }
         }
     }
-    public void TeleportMemberToPosition(Vector3 position, int index){
+
+    public void TeleportMemberToPosition(Vector3 position, int index)
+    {
         TeleportMemberToPosition(position, members[index].GetComponent<AnimalController>());
     }
-    public void TeleportMemberToPosition(Vector3 position, AnimalController member){
+
+    public void TeleportMemberToPosition(Vector3 position, AnimalController member)
+    {
         member.transform.position = position;
     }
+
     // Radius is an optional parameter which describes how far they have to be from the leader before we tp
-    public void TeleportPartyMembersToLeader(float radius = 0f){
+    public void TeleportPartyMembersToLeader(float radius = 0f)
+    {
         Debug.Log("Teleporting to:" + leader.transform.position);
-        for(int i = 0; i < members.Length; ++i){
-            if (i == leaderIndex) 
+        for (int i = 0; i < members.Length; ++i)
+        {
+            if (i == leaderIndex)
                 continue;
-            if (radius > 0f && (members[i].transform.position - leader.transform.position).magnitude < radius) 
+            if (
+                radius > 0f
+                && (members[i].transform.position - leader.transform.position).magnitude < radius
+            )
                 continue;
             // Randomly within a small unit circle around the player
             // BUT NOT INSIDE
-            Vector2 point = (Random.insideUnitCircle * partyRadius/2) * 2; // Around world origin
+            Vector2 point = (Random.insideUnitCircle * partyRadius / 2) * 2; // Around world origin
             Vector3 teleportPos = new Vector3(
-                leader.transform.position.x + point.x, 
-                leader.transform.position.y, 
-                leader.transform.position.z + point.y);
+                leader.transform.position.x + point.x,
+                leader.transform.position.y,
+                leader.transform.position.z + point.y
+            );
             TeleportMemberToPosition(teleportPos, i);
         }
     }
-    public bool IsInParty(AnimalController animal){
-        for(int i = 0; i < members.Length; ++i){
-            if (members[i].GetComponent<AnimalController>() == animal) return true;
+
+    public bool IsInParty(AnimalController animal)
+    {
+        for (int i = 0; i < members.Length; ++i)
+        {
+            if (members[i].GetComponent<AnimalController>() == animal)
+                return true;
         }
         return false;
     }
