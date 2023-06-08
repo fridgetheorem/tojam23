@@ -61,6 +61,21 @@ public class AudioManager : MonoBehaviour
                 pmm.GameResumed += HidePanel;
             }
         }
+
+        // Set saved values on initialization
+        sliderBGM.value = DataManager.audioBGM;
+        sliderSFX.value = DataManager.audioSFX;
+        sliderMenu.value = DataManager.audioMenu;
+
+        StartCoroutine(LateStart(0.5f));
+    }
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        BGMChange?.Invoke(sliderBGM.value);
+        SFXChange?.Invoke(sliderSFX.value);
+        MenuChange?.Invoke(sliderMenu.value);
     }
 
     public void ShowButton()
@@ -98,16 +113,19 @@ public class AudioManager : MonoBehaviour
     public void SetBGMChanges()
     {
         BGMChange?.Invoke(sliderBGM.value);
+        DataManager.audioBGM = sliderBGM.value;
     }
 
     public void SetSFXChanges()
     {
         SFXChange?.Invoke(sliderSFX.value);
+        DataManager.audioSFX = sliderSFX.value;
     }
 
     public void SetMenuChanges()
     {
         MenuChange?.Invoke(sliderMenu.value);
+        DataManager.audioMenu = sliderMenu.value;
     }
 
     public void SetAllAudioChanges()
