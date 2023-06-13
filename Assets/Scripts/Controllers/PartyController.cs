@@ -138,6 +138,7 @@ public class PartyController : MonoBehaviour
 
     public void Animate(Vector2 movementInput)
     {
+        Debug.Log("Animation Update");
         // Set each member animator state based on the most recent movement input
         foreach (GameObject member in members)
         {
