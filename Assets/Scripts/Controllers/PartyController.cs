@@ -134,17 +134,18 @@ public class PartyController : MonoBehaviour
     {
         Vector3 translatedMovement = new Vector3(movementInput.x, 0, movementInput.y);
         leader?.Move(translatedMovement, leader.speed);
+    }
 
+    public void Animate(Vector2 movementInput)
+    {
         // Set each member animator state based on the most recent movement input
         foreach (GameObject member in members)
         {
-            /*
-            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x > 0;
-            member.GetComponentInChildren<Animator>().SetBool("down", movementInput.y < 0);
-            */
-            //HACKY FIX FOR CAMERA, THIS IS IVNERTED!
-            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x > 0;
-            member.GetComponentInChildren<Animator>().SetBool("down", movementInput.y > 0);
+            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x < 0;
+            member.GetComponentInChildren<Animator>().SetBool("Down", movementInput.y > 0);
+            member
+                .GetComponentInChildren<Animator>()
+                .SetBool("Moving", movementInput.magnitude > 0);
         }
     }
 
