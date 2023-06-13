@@ -50,6 +50,14 @@ public class PartyController : MonoBehaviour
         set { _followSpeed = value; }
     }
 
+    [SerializeField]
+    private PartySyncZone _partySyncZone;
+
+    private bool _partySynced = false;
+
+    public delegate void OnPartySync();
+    public event OnPartySync PartySynced;
+
     private void Start()
     {
         //members = new List<GameObject>();
@@ -72,6 +80,13 @@ public class PartyController : MonoBehaviour
             member.GetComponent<AnimalController>().SetPartyAffiliation(this);
         }
         SetLeader();
+
+        // Subscribe to party syncing.
+        _partySyncZone = FindObjectOfType<PartySyncZone>();
+        if (_partySyncZone)
+        {
+            _partySyncZone.PartySynced += OnPartySynced;
+        }
     }
 
     private void SetLeader()
@@ -140,13 +155,18 @@ public class PartyController : MonoBehaviour
     {
         Debug.Log("Animation Update");
         // Set each member animator state based on the most recent movement input
-        foreach (GameObject member in members)
+
+        for (int i = 0; i < members.Length; ++i)
         {
+            GameObject member = members[i];
             member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x < 0;
             member.GetComponentInChildren<Animator>().SetBool("Down", movementInput.y > 0);
-            member
-                .GetComponentInChildren<Animator>()
-                .SetBool("Moving", movementInput.magnitude > 0);
+            if (_partySynced || i == leaderIndex)
+                member
+                    .GetComponentInChildren<Animator>()
+                    .SetBool("Moving", movementInput.magnitude > 0);
+            else
+                member.GetComponentInChildren<Animator>().SetBool("Moving", false);
         }
     }
 
@@ -228,5 +248,10 @@ public class PartyController : MonoBehaviour
                 return true;
         }
         return false;
+    }
+
+    public void OnPartySynced()
+    {
+        _partySynced = true;
     }
 }
