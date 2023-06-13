@@ -149,18 +149,22 @@ public class PartyController : MonoBehaviour
     {
         Vector3 translatedMovement = new Vector3(movementInput.x, 0, movementInput.y);
         leader?.Move(translatedMovement, leader.speed);
+
+        foreach (GameObject member in members)
+        {
+            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x < 0;
+            member.GetComponentInChildren<Animator>().SetBool("Down", movementInput.y >= 0);
+        }
     }
 
     public void Animate(Vector2 movementInput)
     {
-        Debug.Log("Animation Update");
         // Set each member animator state based on the most recent movement input
 
         for (int i = 0; i < members.Length; ++i)
         {
             GameObject member = members[i];
-            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x < 0;
-            member.GetComponentInChildren<Animator>().SetBool("Down", movementInput.y > 0);
+
             if (_partySynced || i == leaderIndex)
                 member
                     .GetComponentInChildren<Animator>()
