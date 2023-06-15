@@ -166,9 +166,15 @@ public class PartyController : MonoBehaviour
             GameObject member = members[i];
 
             if (_partySynced || i == leaderIndex)
+            {
                 member
                     .GetComponentInChildren<Animator>()
                     .SetBool("Moving", movementInput.magnitude > 0);
+                member.GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale =
+                    (movementInput.magnitude > 0)
+                        ? new Vector3(0.23f, 0.23f, 0.23f) // Enlarge sprite when running.
+                        : new Vector3(0.2f, 0.2f, 0.2f); // Shrink sprite back to original size.
+            }
             else
                 member.GetComponentInChildren<Animator>().SetBool("Moving", false);
         }
