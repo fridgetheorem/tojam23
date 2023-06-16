@@ -16,6 +16,8 @@ public class DisplayController : MonoBehaviour
 
     public DialogueTrigger deathDialogue;
 
+    public Animator specialAbilities;
+
     // Record health bar transforms
     [Header("")]
     public List<RectTransform> transforms = new List<RectTransform>();
@@ -33,6 +35,7 @@ public class DisplayController : MonoBehaviour
         if (_party)
         {
             _party.AnimalChanged += OnAnimalChanged;
+            _party.SpecialAbility += OnSpecialAbility;
         }
 
         // Subscribe to party syncing.
@@ -92,6 +95,12 @@ public class DisplayController : MonoBehaviour
         }
     }
 
+    void OnSpecialAbility()
+    {
+        if (specialAbilities)
+            specialAbilities.SetTrigger("TriggerSpecialAbility");
+    }
+
     void OnAnimalChanged(AnimalController newLeader)
     {
         // Cycle animals until party leader is 0.
@@ -134,6 +143,7 @@ public class DisplayController : MonoBehaviour
         if (_party)
         {
             _party.AnimalChanged -= OnAnimalChanged;
+            _party.SpecialAbility -= OnSpecialAbility;
         }
         for (int i = 0; i < transforms.Count; i++)
         {
