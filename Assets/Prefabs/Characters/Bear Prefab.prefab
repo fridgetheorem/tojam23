@@ -485,5 +485,6 @@ MonoBehaviour:
   virtualCamera: {fileID: 8522905836780229780}
   hitDamage: 1
   attackDistance: 1
-  attackRadius: 1
+  attackRadius: 2
   attackVisual: {fileID: 0}
+  _attackCooldown: 0.5
