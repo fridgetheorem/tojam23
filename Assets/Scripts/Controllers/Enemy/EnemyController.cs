@@ -13,8 +13,10 @@ public class EnemyController : AnimalController
     // Enemies are animals with their logic defined
     private float deathFade = .8f;
 
+    private EnemyDamage ed;
 
-    void Awake(){
+
+    new void Awake(){
         base.Awake();
 
         trigger = GetComponent<SphereCollider>();
@@ -22,6 +24,9 @@ public class EnemyController : AnimalController
         trigger.radius = aggroRange;
         movementController.radius = size;
         Death += DeathBehaviour;
+
+        ed = GetComponentInChildren<EnemyDamage>();
+        ed.setDamage(contactDamage);
     }
 
     void LookForPlayer(){
@@ -30,20 +35,17 @@ public class EnemyController : AnimalController
 
     void OnTriggerStay(Collider collider){
         PartyController party;
-        if(!(party = collider.gameObject.GetComponent<PartyController>())) return;
+        if(!(party = collider.gameObject.GetComponentInChildren<PartyController>())) return;
         TrackPlayerRoutine(party);
-    }
-
-    void OnControllerColliderHit(ControllerColliderHit collision){
-        AnimalController damageable = collision.gameObject.GetComponent<AnimalController>();
-        if(damageable == null) return;
-        damageable.BeDamaged(contactDamage);
     }
 
     void TrackPlayerRoutine(PartyController party){
         switch ( behaviour ){
             case EnemyBehaviour.Aggressive:
-                Move(party.transform.position - transform.position, speed);
+                Vector3 movementVec = party.transform.position - transform.position;
+                if (!ed.IsHurting()) {
+                    Move(movementVec, speed);
+                }
                 break;
             case EnemyBehaviour.Passive:
                 // Just do nothing
@@ -80,6 +82,7 @@ public class EnemyController : AnimalController
         Destroy(gameObject);
         yield return null;
     }
+
 }
 
 enum EnemyBehaviour 
