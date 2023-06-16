@@ -18,6 +18,8 @@ public abstract class AnimalController : Health
     // should be properties not variables but... fuck it we ball
     [SerializeField]
     public float speed = 10;
+
+    [HideInInspector]
     public float originalSpeed = 10f;
 
     [SerializeField]
