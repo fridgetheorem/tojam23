@@ -33,6 +33,9 @@ public class PartyController : MonoBehaviour
     public delegate void OnAnimalChange(AnimalController newLeader);
     public event OnAnimalChange AnimalChanged;
 
+    public delegate void OnSpecialAbility();
+    public event OnSpecialAbility SpecialAbility;
+
     public static PartyController playerParty;
 
     [SerializeField]
@@ -182,6 +185,7 @@ public class PartyController : MonoBehaviour
 
     public void Interact()
     {
+        SpecialAbility?.Invoke();
         leader.Interact();
     }
 
