@@ -15,6 +15,8 @@ public class EnemyController : AnimalController
 
     private EnemyDamage ed;
 
+    public SpriteRenderer spriteRenderer;
+
 
     new void Awake(){
         base.Awake();
@@ -24,6 +26,7 @@ public class EnemyController : AnimalController
         trigger.radius = aggroRange;
         movementController.radius = size;
         Death += DeathBehaviour;
+        HealthChanged += DamageBehaviour;
 
         ed = GetComponentInChildren<EnemyDamage>();
         ed.setDamage(contactDamage);
@@ -56,12 +59,29 @@ public class EnemyController : AnimalController
         }
 
     }
+    
+    public void DamageBehaviour(float garbage1, float garbage2) {
+        if (health > 0) { 
+            StopCoroutine(TakeDamage());
+            StartCoroutine(TakeDamage());
+        }
+    }
+
+    IEnumerator TakeDamage()
+    {
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer.color = Color.white;
+    }
 
     public void DeathBehaviour(){
+        speed = 0;
         Collider[] colliders = GetComponents<Collider>();
         foreach(var collider in colliders){
-            Destroy(collider);
+            //Destroy(collider);
         }
+        Destroy(ed);
         StartCoroutine(
             FadeSelf(deathFade)
         );
@@ -69,7 +89,6 @@ public class EnemyController : AnimalController
 
     IEnumerator FadeSelf(float fadeDuration)
     {
-        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         Color initialColor = spriteRenderer.color;
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
 
