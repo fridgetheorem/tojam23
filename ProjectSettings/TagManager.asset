@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EndCredits
   - PlayerCharacter
+  - SpecialAbilitySFX
   layers:
   - Default
   - TransparentFX
