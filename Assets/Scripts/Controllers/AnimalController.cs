@@ -40,6 +40,8 @@ public abstract class AnimalController : Health
     public Vector3 idleScale = Vector3.zero;
     public Vector3 movingScale = Vector3.zero;
 
+    public AudioClip specialAbilitySFX;
+
     private void Start()
     {
         originalYPos = transform.position.y;
@@ -112,6 +114,18 @@ public abstract class AnimalController : Health
             0,
             vector.normalized.z + transform.position.z
         );
+    }
+
+    public void PlaySFX()
+    {
+        if (specialAbilitySFX != null)
+        {
+            AudioSource ad = GameObject
+                .FindGameObjectWithTag("SpecialAbilitySFX")
+                .GetComponent<AudioSource>();
+            ad.clip = specialAbilitySFX;
+            ad.Play();
+        }
     }
 
     // INTERACT
