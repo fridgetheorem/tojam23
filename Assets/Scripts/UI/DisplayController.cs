@@ -28,6 +28,9 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     public List<AnimalDisplay> displays = new List<AnimalDisplay>();
 
+    private float _abilityCooldown = 0.45f;
+    private bool _hasAbility = true;
+
     void Start()
     {
         // Subscribe to party swapping for this animal.
@@ -97,8 +100,26 @@ public class DisplayController : MonoBehaviour
 
     void OnSpecialAbility()
     {
+        if (!_hasAbility)
+            return;
+
         if (specialAbilities)
             specialAbilities.SetTrigger("TriggerSpecialAbility");
+
+        _hasAbility = false;
+        StartCoroutine(AbilityCooldown(_abilityCooldown));
+    }
+
+    IEnumerator AbilityCooldown(float length)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < length)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        _hasAbility = true;
+        yield return null;
     }
 
     void OnAnimalChanged(AnimalController newLeader)
