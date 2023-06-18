@@ -478,6 +478,8 @@ MonoBehaviour:
   size: 1
   model: {fileID: 0}
   virtualCamera: {fileID: 3977426569571086700}
+  idleScale: {x: 0.2, y: 0.2, z: 0.2}
+  movingScale: {x: 0.22, y: 0.22, z: 0.22}
   dashDistance: 10
   _dashDuration: 0.5
   _dashCooldown: 0.5
