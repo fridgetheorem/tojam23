@@ -37,9 +37,16 @@ public abstract class AnimalController : Health
 
     protected PartyController party;
 
+    public Vector3 idleScale = Vector3.zero;
+    public Vector3 movingScale = Vector3.zero;
+
     private void Start()
     {
         originalYPos = transform.position.y;
+        if (idleScale == Vector3.zero)
+            idleScale = GetComponentInChildren<SpriteRenderer>().transform.localScale;
+        if (movingScale == Vector3.zero)
+            movingScale = GetComponentInChildren<SpriteRenderer>().transform.localScale;
     }
 
     public void SetPartyAffiliation(PartyController party)

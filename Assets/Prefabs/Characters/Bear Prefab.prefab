@@ -483,6 +483,8 @@ MonoBehaviour:
   size: 3
   model: {fileID: 6990478235836927298}
   virtualCamera: {fileID: 8522905836780229780}
+  idleScale: {x: 0.2, y: 0.2, z: 0.2}
+  movingScale: {x: 0.23, y: 0.23, z: 0.23}
   hitDamage: 1
   attackDistance: 1
   attackRadius: 2

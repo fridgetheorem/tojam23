@@ -474,6 +474,8 @@ MonoBehaviour:
   size: 1
   model: {fileID: 4219278726321641163}
   virtualCamera: {fileID: 239013747425274451}
+  idleScale: {x: 0.22, y: 0.22, z: 0.22}
+  movingScale: {x: 0.2, y: 0.2, z: 0.2}
   screamRadius: 5
 --- !u!4 &7972133444066898620 stripped
 Transform:
