@@ -152,31 +152,24 @@ public class PartyController : MonoBehaviour
 
         foreach (GameObject member in members)
         {
-            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x < 0;
-            member.GetComponentInChildren<Animator>().SetBool("Down", movementInput.y >= 0);
+            AnimalController animal = member.GetComponent<AnimalController>();
+            animal.FlipSprite(movementInput.x < 0);
+            animal.UpdateAnimator("Down", movementInput.y >= 0);
+            animal.ExtraMoveAnimatons(movementInput);
         }
     }
 
     public void Animate(Vector2 movementInput)
     {
         // Set each member animator state based on the most recent movement input
-
         for (int i = 0; i < members.Length; ++i)
         {
-            GameObject member = members[i];
+            AnimalController animal = members[i].GetComponent<AnimalController>();
 
             if (_partySynced || i == leaderIndex)
-            {
-                member
-                    .GetComponentInChildren<Animator>()
-                    .SetBool("Moving", movementInput.magnitude > 0);
-                member.GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale =
-                    (movementInput.magnitude > 0)
-                        ? member.GetComponent<AnimalController>().movingScale // Enlarge sprite when running.
-                        : member.GetComponent<AnimalController>().idleScale; // Shrink sprite back to original size.
-            }
+                animal.Animate(movementInput);
             else
-                member.GetComponentInChildren<Animator>().SetBool("Moving", false);
+                animal.UpdateAnimator("Moving", false); //member.GetComponentInChildren<Animator>().SetBool("Moving", false);
         }
     }
 

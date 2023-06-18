@@ -128,6 +128,44 @@ public abstract class AnimalController : Health
         }
     }
 
+    public void Animate(Vector2 movementInput)
+    {
+        // Note this gets the sprite renderer because its the first object in the hierarchy.
+        GetComponentInChildren<Animator>()
+            .SetBool("Moving", movementInput.magnitude > 0);
+        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale =
+            (movementInput.magnitude > 0)
+                ? movingScale // Enlarge sprite when running.
+                : idleScale; // Shrink sprite back to original size.
+
+        ExtraUpdateAnimatons(movementInput); // Animal-specific animations.
+    }
+
+    public void UpdateAnimator(string name, bool value)
+    {
+        // Note this gets the sprite renderer because its the first object in the hierarchy.
+        GetComponentInChildren<Animator>()
+            .SetBool(name, value);
+    }
+
+    public void FlipSprite(bool value)
+    {
+        // Note this gets the sprite renderer because its the first object in the hierarchy.
+        GetComponentInChildren<SpriteRenderer>().flipX = value;
+    }
+
+    // For animal-specific animations like bear and fox.
+    public virtual void ExtraUpdateAnimatons(Vector2 movementInput)
+    {
+        return;
+    }
+
+    // For animal-specific animations like bear and fox.
+    public virtual void ExtraMoveAnimatons(Vector2 movementInput)
+    {
+        return;
+    }
+
     // INTERACT
     // The special ability implemented by each animal
     // To be overridden by each animal type
