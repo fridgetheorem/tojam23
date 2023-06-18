@@ -234,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7158121256143357863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.22599968, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0.22599968, z: -0.1}
   m_LocalScale: {x: 0.36439997, y: 0.36439997, z: 0.36439997}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -591,7 +591,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 8522905836780229780}
   idleScale: {x: 0.2, y: 0.2, z: 0.2}
   movingScale: {x: 0.23, y: 0.23, z: 0.23}
-  specialAbilitySFX: {fileID: 0}
+  specialAbilitySFX: {fileID: 8300000, guid: 2bff40af18497b94a9962b69bddb0fb7, type: 3}
   hitDamage: 1
   attackDistance: 1
   attackRadius: 2

@@ -43,8 +43,6 @@ public class BearController : AnimalController
         );
         if (hitColliders.Length > 0)
         {
-            // Probably wanna play some sound;
-
             // We hit some collider
             // Do something with this information
             foreach (Collider collider in hitColliders)
@@ -57,6 +55,8 @@ public class BearController : AnimalController
                 }
             }
         }
+        // Probably wanna play some sound;
+        PlaySFX();
         _canAttack = false;
         StartCoroutine(AttackCooldown(_attackCooldown));
     }
