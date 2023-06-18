@@ -81,16 +81,16 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.text.ToCharArray())
         {
             dialogueText.text += letter;
-            if (!skippingPrevious && Input.GetKey(KeyCode.Space))
+            if (!skippingPrevious && Input.GetButton("Skip"))
             {
                 dialogueText.text = sentence.text;
-                while (!Input.GetKeyUp(KeyCode.Space))
+                while (!Input.GetButtonUp("Skip"))
                 {
                     yield return null;
                 }
                 break;
             }
-            skippingPrevious = Input.GetKey(KeyCode.Space);
+            skippingPrevious = Input.GetButton("Skip");
 
             yield return new WaitForSeconds(0.03f);
         }
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         skippingPrevious = true;
         nextDialogueTimer = 3f;
 
-        while (!Input.GetKeyDown(KeyCode.Space) && nextDialogueTimer > 0)
+        while (!Input.GetButtonDown("Skip") && nextDialogueTimer > 0)
         {
             nextDialogueTimer -= Time.deltaTime;
             yield return null;
