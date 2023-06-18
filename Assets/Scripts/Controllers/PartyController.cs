@@ -58,9 +58,6 @@ public class PartyController : MonoBehaviour
 
     private bool _partySynced = false;
 
-    public delegate void OnPartySync();
-    public event OnPartySync PartySynced;
-
     private void Start()
     {
         //members = new List<GameObject>();
