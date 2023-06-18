@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4a2280ddced2a7498650b6b1bfd2566
+guid: 6c7d1b7ba589d4d479b2b7e390e3ec4b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Screech_0
+      name: Lynx Screech 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f5e49297316ce042a185b8d6b988871
-      internalID: -1179830944
+      spriteID: 3bbbf5bdbda69a04192b124bc6fda27a
+      internalID: 2051314437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Screech_1
+      name: Lynx Screech 1_1
       rect:
         serializedVersion: 2
         x: 2544
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a5ae561325af6648854eda04db5092b
-      internalID: -80003981
+      spriteID: f8ae0370f5a898b44b2dfc55f15d8190
+      internalID: -949588633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Screech_2
+      name: Lynx Screech 1_2
       rect:
         serializedVersion: 2
         x: 5088
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6d6d11da1a524e4ea0451888451ba77
-      internalID: 437595271
+      spriteID: 43784514ef2346c40a8bc346918488c3
+      internalID: 104324499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Screech_3
+      name: Lynx Screech 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c0f396e2ef91a04fb4163f91f58d93d
-      internalID: 1521365322
+      spriteID: dc6ee00dc2cbfb04fbb3b843e5cbe160
+      internalID: -1237751944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Screech_4
+      name: Lynx Screech 1_4
       rect:
         serializedVersion: 2
         x: 2544
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5777d2f6fec0e3249a74e086fc4e976b
-      internalID: -1526969940
+      spriteID: c49d0bb342b270547929ea8f6a059852
+      internalID: 721685221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Screech_5
+      name: Lynx Screech 1_5
       rect:
         serializedVersion: 2
         x: 5088
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a92493dff85095b4db7b5b19b75f9e3c
-      internalID: 83572687
+      spriteID: 53f44d14f90269c41a5fd14feaa5c9ff
+      internalID: 1565170981
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e32861b35a663f649b48622a2f872a0e
+    spriteID: 1abe1ff740850a54abeaee3eada7a857
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Screech_0: -1179830944
-      Screech_1: -80003981
-      Screech_2: 437595271
-      Screech_3: 1521365322
-      Screech_4: -1526969940
-      Screech_5: 83572687
+      Lynx Screech 1_0: 2051314437
+      Lynx Screech 1_1: -949588633
+      Lynx Screech 1_2: 104324499
+      Lynx Screech 1_3: -1237751944
+      Lynx Screech 1_4: 721685221
+      Lynx Screech 1_5: 1565170981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
