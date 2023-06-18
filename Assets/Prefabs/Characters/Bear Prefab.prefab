@@ -489,4 +489,4 @@ MonoBehaviour:
   attackDistance: 1
   attackRadius: 2
   attackVisual: {fileID: 0}
-  _attackCooldown: 0.5
+  _attackCooldown: 0.35

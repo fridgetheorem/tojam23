@@ -32,13 +32,11 @@ public class InputController : MonoBehaviour
 
         party?.Animate(keyboardInput);
 
-        bool input = Input.GetButtonDown("Action");
-        if (input)
+        if (Input.GetButtonDown("Action"))
         {
             party?.Interact();
         }
 
-        bool changeMember = Input.GetButtonDown("Action");
         if (Input.GetButtonDown("Swap"))
         {
             party.CycleLeader();
