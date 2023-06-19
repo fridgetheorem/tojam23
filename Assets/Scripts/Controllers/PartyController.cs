@@ -166,6 +166,9 @@ public class PartyController : MonoBehaviour
         {
             AnimalController animal = members[i].GetComponent<AnimalController>();
 
+            if (i == leaderIndex)
+                animal.PlayFootsteps(movementInput);
+
             if (_partySynced || i == leaderIndex)
                 animal.Animate(movementInput);
             else

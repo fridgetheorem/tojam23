@@ -42,6 +42,7 @@ public abstract class AnimalController : Health
     public Vector3 movingScale = Vector3.zero;
 
     public AudioClip specialAbilitySFX;
+    public AudioClip runningSFX;
 
     public void Start()
     {
@@ -139,16 +140,22 @@ public abstract class AnimalController : Health
                 ? movingScale // Enlarge sprite when running.
                 : idleScale; // Shrink sprite back to original size.
 
+        ExtraUpdateAnimatons(movementInput); // Animal-specific animations.
+    }
+
+    public void PlayFootsteps(Vector2 movementInput)
+    {
         AudioSource ad = GameObject.FindGameObjectWithTag("RunningSFX").GetComponent<AudioSource>();
         if (movementInput.magnitude > 0)
         {
-            if (!ad.isPlaying)
+            if (!ad.isPlaying || ad.clip != runningSFX)
+            {
+                ad.clip = runningSFX;
                 ad.Play();
+            }
         }
         else
             ad.Pause();
-
-        ExtraUpdateAnimatons(movementInput); // Animal-specific animations.
     }
 
     public void UpdateAnimator(string name, bool value)

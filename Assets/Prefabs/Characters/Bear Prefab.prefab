@@ -592,6 +592,7 @@ MonoBehaviour:
   idleScale: {x: 0.2, y: 0.2, z: 0.2}
   movingScale: {x: 0.23, y: 0.23, z: 0.23}
   specialAbilitySFX: {fileID: 8300000, guid: 2bff40af18497b94a9962b69bddb0fb7, type: 3}
+  runningSFX: {fileID: 8300000, guid: 150b1bcbfde93534d96b74554171a4ad, type: 3}
   hitDamage: 1
   attackDistance: 1
   attackRadius: 2

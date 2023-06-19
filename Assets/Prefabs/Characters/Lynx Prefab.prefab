@@ -583,6 +583,7 @@ MonoBehaviour:
   idleScale: {x: 0.22, y: 0.22, z: 0.22}
   movingScale: {x: 0.2, y: 0.2, z: 0.2}
   specialAbilitySFX: {fileID: 8300000, guid: b00d48ccbe54703499525a93208d4f81, type: 3}
+  runningSFX: {fileID: 8300000, guid: ac75db7f11137c0458255f259205fb46, type: 3}
   screamRadius: 5
   screechImage: {fileID: 6650519505490208537}
   _screechCooldown: 0.45

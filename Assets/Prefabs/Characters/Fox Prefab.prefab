@@ -565,6 +565,7 @@ MonoBehaviour:
   idleScale: {x: 0.2, y: 0.2, z: 0.2}
   movingScale: {x: 0.22, y: 0.22, z: 0.22}
   specialAbilitySFX: {fileID: 8300000, guid: 2a6031c07c338854e861570af9797fd9, type: 3}
+  runningSFX: {fileID: 8300000, guid: dc7c2df040ede63469a0e1eefc5d9426, type: 3}
   dashDistance: 32
   _dashDuration: 0.2
   _dashCooldown: 0.45
