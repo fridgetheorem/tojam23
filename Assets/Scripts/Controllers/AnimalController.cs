@@ -139,6 +139,15 @@ public abstract class AnimalController : Health
                 ? movingScale // Enlarge sprite when running.
                 : idleScale; // Shrink sprite back to original size.
 
+        AudioSource ad = GameObject.FindGameObjectWithTag("RunningSFX").GetComponent<AudioSource>();
+        if (movementInput.magnitude > 0)
+        {
+            if (!ad.isPlaying)
+                ad.Play();
+        }
+        else
+            ad.Pause();
+
         ExtraUpdateAnimatons(movementInput); // Animal-specific animations.
     }
 

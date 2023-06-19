@@ -5,11 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyController : AnimalController
 {
-
     SphereCollider trigger;
-    [SerializeField] private EnemyBehaviour behaviour = EnemyBehaviour.Aggressive;
-    [SerializeField] private float aggroRange = 5f;
-    [SerializeField] private float contactDamage = 1f;
+
+    [SerializeField]
+    private EnemyBehaviour behaviour = EnemyBehaviour.Aggressive;
+
+    [SerializeField]
+    private float aggroRange = 5f;
+
+    [SerializeField]
+    private float contactDamage = 1f;
+
     // Enemies are animals with their logic defined
     private float deathFade = .8f;
 
@@ -17,12 +23,12 @@ public class EnemyController : AnimalController
 
     public SpriteRenderer spriteRenderer;
 
-
-    new void Awake(){
+    new void Awake()
+    {
         base.Awake();
 
         trigger = GetComponent<SphereCollider>();
-        
+
         trigger.radius = aggroRange;
         movementController.radius = size;
         Death += DeathBehaviour;
@@ -32,21 +38,27 @@ public class EnemyController : AnimalController
         ed.setDamage(contactDamage);
     }
 
-    void LookForPlayer(){
+    void LookForPlayer()
+    {
         // Collision bounding box(?)
     }
 
-    void OnTriggerStay(Collider collider){
+    void OnTriggerStay(Collider collider)
+    {
         PartyController party;
-        if(!(party = collider.gameObject.GetComponentInChildren<PartyController>())) return;
+        if (!(party = collider.gameObject.GetComponentInChildren<PartyController>()))
+            return;
         TrackPlayerRoutine(party);
     }
 
-    void TrackPlayerRoutine(PartyController party){
-        switch ( behaviour ){
+    void TrackPlayerRoutine(PartyController party)
+    {
+        switch (behaviour)
+        {
             case EnemyBehaviour.Aggressive:
                 Vector3 movementVec = party.transform.position - transform.position;
-                if (!ed.IsHurting()) {
+                if (!ed.IsHurting())
+                {
                     Move(movementVec, speed);
                 }
                 break;
@@ -55,13 +67,13 @@ public class EnemyController : AnimalController
                 break;
             default:
                 break;
-
         }
-
     }
-    
-    public void DamageBehaviour(float garbage1, float garbage2) {
-        if (health > 0) { 
+
+    public void DamageBehaviour(float garbage1, float garbage2)
+    {
+        if (health > 0)
+        {
             StopCoroutine(TakeDamage());
             StartCoroutine(TakeDamage());
         }
@@ -75,16 +87,17 @@ public class EnemyController : AnimalController
         spriteRenderer.color = Color.white;
     }
 
-    public void DeathBehaviour(){
+    public void DeathBehaviour()
+    {
         speed = 0;
         Collider[] colliders = GetComponents<Collider>();
-        foreach(var collider in colliders){
+        foreach (var collider in colliders)
+        {
             //Destroy(collider);
         }
+        GameObject.FindGameObjectWithTag("FireSFX").GetComponent<AudioSource>().Play();
         Destroy(ed);
-        StartCoroutine(
-            FadeSelf(deathFade)
-        );
+        StartCoroutine(FadeSelf(deathFade));
     }
 
     IEnumerator FadeSelf(float fadeDuration)
@@ -93,18 +106,22 @@ public class EnemyController : AnimalController
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
 
         float elapsedTime = 0;
-        while (elapsedTime < fadeDuration){
+        while (elapsedTime < fadeDuration)
+        {
             elapsedTime += Time.deltaTime;
-            spriteRenderer.material.color = Color.Lerp(initialColor, targetColor, elapsedTime / fadeDuration);
+            spriteRenderer.material.color = Color.Lerp(
+                initialColor,
+                targetColor,
+                elapsedTime / fadeDuration
+            );
             yield return null;
         }
         Destroy(gameObject);
         yield return null;
     }
-
 }
 
-enum EnemyBehaviour 
+enum EnemyBehaviour
 {
     Aggressive,
     Passive
