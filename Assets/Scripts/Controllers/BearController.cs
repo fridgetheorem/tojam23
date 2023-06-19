@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class BearController : AnimalController
 {
+    [Header("Bear Properties")]
     public float hitDamage = 1;
     public float attackDistance = 1;
     public float attackRadius;

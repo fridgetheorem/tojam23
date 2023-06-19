@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class LynxController : AnimalController
 {
+    [Header("Lynx Properties")]
     public float screamRadius = 5;
 
     public Animator screechImage;
