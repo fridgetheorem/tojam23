@@ -82,6 +82,11 @@ public class DisplayController : MonoBehaviour
 
     void OnDeath()
     {
+        StopAllCoroutines();
+        for (int i = 0; i < transforms.Count; i++)
+        {
+            healthObj[i].GetComponent<HealthDisplay>()._health.Death -= OnDeath;
+        }
         if (deathDialogue)
         {
             deathDialogue.TriggerDialogue();
@@ -168,7 +173,7 @@ public class DisplayController : MonoBehaviour
         }
         for (int i = 0; i < transforms.Count; i++)
         {
-            healthObj[i].GetComponent<HealthDisplay>()._health.Death += OnDeath;
+            healthObj[i].GetComponent<HealthDisplay>()._health.Death -= OnDeath;
         }
     }
 }

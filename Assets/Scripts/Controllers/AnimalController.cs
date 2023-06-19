@@ -10,6 +10,7 @@ using UnityEngine;
 // Damageable dudes
 public abstract class AnimalController : Health
 {
+    [Header("Animal Properties")]
     [SerializeField]
     protected CharacterController movementController;
 
@@ -42,7 +43,7 @@ public abstract class AnimalController : Health
 
     public AudioClip specialAbilitySFX;
 
-    private void Start()
+    public void Start()
     {
         originalYPos = transform.position.y;
         if (idleScale == Vector3.zero)
