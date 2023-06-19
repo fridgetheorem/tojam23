@@ -7,6 +7,10 @@ public class Fire : MonoBehaviour
     [SerializeField]
     private float _fireDuration = 0.6f;
 
+    public float _contactDamage = 0.5f;
+
+    public float _coolDown = 0.5f;
+
     public void DestroyFire()
     {
         Destroy(gameObject.GetComponentInChildren<Collider>());
@@ -34,5 +38,33 @@ public class Fire : MonoBehaviour
         }
         Destroy(gameObject);
         yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        AnimalController animal = other.gameObject.GetComponent<AnimalController>();
+        if (animal != null)
+            StartCoroutine(TakeDamage(animal));
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        AnimalController animal = other.gameObject.GetComponent<AnimalController>();
+        if (animal != null)
+            StopAllCoroutines();
+    }
+
+    IEnumerator TakeDamage(AnimalController animal)
+    {
+        while (true)
+        {
+            animal.BeDamaged(_contactDamage);
+            yield return new WaitForSecondsRealtime(_coolDown);
+        }
+    }
+
+    void Destroy()
+    {
+        StopAllCoroutines();
     }
 }
