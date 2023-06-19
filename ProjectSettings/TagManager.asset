@@ -7,6 +7,7 @@ TagManager:
   - EndCredits
   - PlayerCharacter
   - SpecialAbilitySFX
+  - FoxAfterImage
   layers:
   - Default
   - TransparentFX
