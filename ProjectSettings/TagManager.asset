@@ -8,6 +8,8 @@ TagManager:
   - PlayerCharacter
   - SpecialAbilitySFX
   - FoxAfterImage
+  - FireSFX
+  - RunningSFX
   layers:
   - Default
   - TransparentFX
