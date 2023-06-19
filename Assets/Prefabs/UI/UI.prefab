@@ -3832,7 +3832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (SPACE) Continue >>
+  m_text: Press (F) to Continue >>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
   m_sharedMaterial: {fileID: -6836504450775728845, guid: ca21c47d305a3bb44932007e41c57c0a, type: 2}
