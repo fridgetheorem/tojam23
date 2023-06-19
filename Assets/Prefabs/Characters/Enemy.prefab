@@ -330,7 +330,11 @@ MonoBehaviour:
   size: 0.25
   model: {fileID: 1072721608450701172}
   virtualCamera: {fileID: 0}
+  idleScale: {x: 0, y: 0, z: 0}
+  movingScale: {x: 0, y: 0, z: 0}
+  specialAbilitySFX: {fileID: 0}
+  runningSFX: {fileID: 0}
   behaviour: 0
   aggroRange: 5
-  contactDamage: 1
+  contactDamage: 3
   spriteRenderer: {fileID: 678459993}

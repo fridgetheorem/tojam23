@@ -7,6 +7,7 @@ public class EnemyController : AnimalController
 {
     SphereCollider trigger;
 
+    [Header("Enemy Properties")]
     [SerializeField]
     private EnemyBehaviour behaviour = EnemyBehaviour.Aggressive;
 
