@@ -16,6 +16,8 @@ public class DisplayController : MonoBehaviour
 
     public DialogueTrigger deathDialogue;
 
+    public Animator specialAbilities;
+
     // Record health bar transforms
     [Header("")]
     public List<RectTransform> transforms = new List<RectTransform>();
@@ -26,6 +28,9 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     public List<AnimalDisplay> displays = new List<AnimalDisplay>();
 
+    private float _abilityCooldown = 0.45f;
+    private bool _hasAbility = true;
+
     void Start()
     {
         // Subscribe to party swapping for this animal.
@@ -33,6 +38,7 @@ public class DisplayController : MonoBehaviour
         if (_party)
         {
             _party.AnimalChanged += OnAnimalChanged;
+            _party.SpecialAbility += OnSpecialAbility;
         }
 
         // Subscribe to party syncing.
@@ -76,6 +82,11 @@ public class DisplayController : MonoBehaviour
 
     void OnDeath()
     {
+        StopAllCoroutines();
+        for (int i = 0; i < transforms.Count; i++)
+        {
+            healthObj[i].GetComponent<HealthDisplay>()._health.Death -= OnDeath;
+        }
         if (deathDialogue)
         {
             deathDialogue.TriggerDialogue();
@@ -90,6 +101,30 @@ public class DisplayController : MonoBehaviour
         {
             displays[i].ShowHealthBar();
         }
+    }
+
+    void OnSpecialAbility()
+    {
+        if (!_hasAbility)
+            return;
+
+        if (specialAbilities)
+            specialAbilities.SetTrigger("TriggerSpecialAbility");
+
+        _hasAbility = false;
+        StartCoroutine(AbilityCooldown(_abilityCooldown));
+    }
+
+    IEnumerator AbilityCooldown(float length)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < length)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        _hasAbility = true;
+        yield return null;
     }
 
     void OnAnimalChanged(AnimalController newLeader)
@@ -134,10 +169,11 @@ public class DisplayController : MonoBehaviour
         if (_party)
         {
             _party.AnimalChanged -= OnAnimalChanged;
+            _party.SpecialAbility -= OnSpecialAbility;
         }
         for (int i = 0; i < transforms.Count; i++)
         {
-            healthObj[i].GetComponent<HealthDisplay>()._health.Death += OnDeath;
+            healthObj[i].GetComponent<HealthDisplay>()._health.Death -= OnDeath;
         }
     }
 }

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - EndCredits
+  - PlayerCharacter
+  - SpecialAbilitySFX
+  - FoxAfterImage
+  - FireSFX
+  - RunningSFX
   layers:
   - Default
   - TransparentFX

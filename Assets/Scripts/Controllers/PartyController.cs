@@ -33,6 +33,9 @@ public class PartyController : MonoBehaviour
     public delegate void OnAnimalChange(AnimalController newLeader);
     public event OnAnimalChange AnimalChanged;
 
+    public delegate void OnSpecialAbility();
+    public event OnSpecialAbility SpecialAbility;
+
     public static PartyController playerParty;
 
     [SerializeField]
@@ -49,6 +52,11 @@ public class PartyController : MonoBehaviour
         get { return _followSpeed; }
         set { _followSpeed = value; }
     }
+
+    [SerializeField]
+    private PartySyncZone _partySyncZone;
+
+    private bool _partySynced = false;
 
     private void Start()
     {
@@ -72,6 +80,13 @@ public class PartyController : MonoBehaviour
             member.GetComponent<AnimalController>().SetPartyAffiliation(this);
         }
         SetLeader();
+
+        // Subscribe to party syncing.
+        _partySyncZone = FindObjectOfType<PartySyncZone>();
+        if (_partySyncZone)
+        {
+            _partySyncZone.PartySynced += OnPartySynced;
+        }
     }
 
     private void SetLeader()
@@ -135,21 +150,35 @@ public class PartyController : MonoBehaviour
         Vector3 translatedMovement = new Vector3(movementInput.x, 0, movementInput.y);
         leader?.Move(translatedMovement, leader.speed);
 
-        // Set each member animator state based on the most recent movement input
         foreach (GameObject member in members)
         {
-            /*
-            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x > 0;
-            member.GetComponentInChildren<Animator>().SetBool("down", movementInput.y < 0);
-            */
-            //HACKY FIX FOR CAMERA, THIS IS IVNERTED!
-            member.GetComponentInChildren<SpriteRenderer>().flipX = movementInput.x > 0;
-            member.GetComponentInChildren<Animator>().SetBool("down", movementInput.y > 0);
+            AnimalController animal = member.GetComponent<AnimalController>();
+            animal.FlipSprite(movementInput.x < 0);
+            animal.UpdateAnimator("Down", movementInput.y >= 0);
+            animal.ExtraMoveAnimatons(movementInput);
+        }
+    }
+
+    public void Animate(Vector2 movementInput)
+    {
+        // Set each member animator state based on the most recent movement input
+        for (int i = 0; i < members.Length; ++i)
+        {
+            AnimalController animal = members[i].GetComponent<AnimalController>();
+
+            if (i == leaderIndex)
+                animal.PlayFootsteps(movementInput);
+
+            if (_partySynced || i == leaderIndex)
+                animal.Animate(movementInput);
+            else
+                animal.UpdateAnimator("Moving", false); //member.GetComponentInChildren<Animator>().SetBool("Moving", false);
         }
     }
 
     public void Interact()
     {
+        SpecialAbility?.Invoke();
         leader.Interact();
     }
 
@@ -226,5 +255,10 @@ public class PartyController : MonoBehaviour
                 return true;
         }
         return false;
+    }
+
+    public void OnPartySynced()
+    {
+        _partySynced = true;
     }
 }

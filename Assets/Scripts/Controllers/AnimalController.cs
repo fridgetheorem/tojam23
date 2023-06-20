@@ -10,6 +10,7 @@ using UnityEngine;
 // Damageable dudes
 public abstract class AnimalController : Health
 {
+    [Header("Animal Properties")]
     [SerializeField]
     protected CharacterController movementController;
 
@@ -18,6 +19,8 @@ public abstract class AnimalController : Health
     // should be properties not variables but... fuck it we ball
     [SerializeField]
     public float speed = 10;
+
+    [HideInInspector]
     public float originalSpeed = 10f;
 
     [SerializeField]
@@ -35,9 +38,19 @@ public abstract class AnimalController : Health
 
     protected PartyController party;
 
-    private void Start()
+    public Vector3 idleScale = Vector3.zero;
+    public Vector3 movingScale = Vector3.zero;
+
+    public AudioClip specialAbilitySFX;
+    public AudioClip runningSFX;
+
+    public void Start()
     {
         originalYPos = transform.position.y;
+        if (idleScale == Vector3.zero)
+            idleScale = GetComponentInChildren<SpriteRenderer>().transform.localScale;
+        if (movingScale == Vector3.zero)
+            movingScale = GetComponentInChildren<SpriteRenderer>().transform.localScale;
     }
 
     public void SetPartyAffiliation(PartyController party)
@@ -103,6 +116,71 @@ public abstract class AnimalController : Health
             0,
             vector.normalized.z + transform.position.z
         );
+    }
+
+    public void PlaySFX()
+    {
+        if (specialAbilitySFX != null)
+        {
+            AudioSource ad = GameObject
+                .FindGameObjectWithTag("SpecialAbilitySFX")
+                .GetComponent<AudioSource>();
+            ad.clip = specialAbilitySFX;
+            ad.Play();
+        }
+    }
+
+    public void Animate(Vector2 movementInput)
+    {
+        // Note this gets the sprite renderer because its the first object in the hierarchy.
+        GetComponentInChildren<Animator>()
+            .SetBool("Moving", movementInput.magnitude > 0);
+        GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale =
+            (movementInput.magnitude > 0)
+                ? movingScale // Enlarge sprite when running.
+                : idleScale; // Shrink sprite back to original size.
+
+        ExtraUpdateAnimatons(movementInput); // Animal-specific animations.
+    }
+
+    public void PlayFootsteps(Vector2 movementInput)
+    {
+        AudioSource ad = GameObject.FindGameObjectWithTag("RunningSFX").GetComponent<AudioSource>();
+        if (movementInput.magnitude > 0)
+        {
+            if (!ad.isPlaying || ad.clip != runningSFX)
+            {
+                ad.clip = runningSFX;
+                ad.Play();
+            }
+        }
+        else
+            ad.Pause();
+    }
+
+    public void UpdateAnimator(string name, bool value)
+    {
+        // Note this gets the sprite renderer because its the first object in the hierarchy.
+        GetComponentInChildren<Animator>()
+            .SetBool(name, value);
+    }
+
+    public void FlipSprite(bool value)
+    {
+        // Note this gets the sprite renderer because its the first object in the hierarchy.
+        GetComponentInChildren<SpriteRenderer>().flipX = value;
+    }
+
+    // For animal-specific animations like bear and fox.
+    public virtual void ExtraUpdateAnimatons(Vector2 movementInput)
+    {
+        return;
+    }
+
+    // For animal-specific animations like bear and fox.
+    public virtual void ExtraMoveAnimatons(Vector2 movementInput)
+    {
+        return;
     }
 
     // INTERACT
