@@ -133,8 +133,7 @@ public abstract class AnimalController : Health
     public void Animate(Vector2 movementInput)
     {
         // Note this gets the sprite renderer because its the first object in the hierarchy.
-        GetComponentInChildren<Animator>()
-            .SetBool("Moving", movementInput.magnitude > 0);
+        UpdateAnimator("Moving", movementInput.magnitude > 0);
         GetComponentInChildren<SpriteRenderer>().gameObject.transform.localScale =
             (movementInput.magnitude > 0)
                 ? movingScale // Enlarge sprite when running.
