@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bear front idle Enemy_0
+      name: Bear Idle Front_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,20 +113,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f635e8589a147f4cb13887e89915251
-      internalID: 814534689
+      spriteID: df7651aec1332074b92a015bf8bf85ea
+      internalID: 915220573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front idle Enemy_1
+      name: Bear Idle Front_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -134,20 +134,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc092ef771b0fcd4f9635dc31c85bf64
-      internalID: 573914961
+      spriteID: c305e6bf977a84345a14395af09487a6
+      internalID: -672411701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front idle Enemy_2
+      name: Bear Idle Front_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -155,20 +155,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed3f9dd515d8b3c43990ae7ebd263fc3
-      internalID: -1313802237
+      spriteID: 0032f6eee37db8845b3f1cd62526c498
+      internalID: 1482467493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front idle Enemy_3
+      name: Bear Idle Front_3
       rect:
         serializedVersion: 2
         x: 0
@@ -176,20 +176,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe5013fd8ad1bf8409b351437e92b277
-      internalID: 1131121524
+      spriteID: 14565c5b1d18487469dc9b5b34f7bc03
+      internalID: -1974267151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front idle Enemy_4
+      name: Bear Idle Front_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -197,20 +197,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9780578ed1670744c8e2a339b8bc4171
-      internalID: -566246577
+      spriteID: 7b7c3a3a1e7a0644cbb308a7a115dd72
+      internalID: 521373468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front idle Enemy_5
+      name: Bear Idle Front_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -218,20 +218,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 889dc8a756130f044ba6e9286ac18275
-      internalID: -1387382177
+      spriteID: 6aef0d6392455c840aa11e6b90b1dcad
+      internalID: 1951674358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front idle Enemy_6
+      name: Bear Idle Front_6
       rect:
         serializedVersion: 2
         x: 0
@@ -239,14 +239,14 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30e59236d70403c438c630457a25ca1c
-      internalID: 1601825402
+      spriteID: cd010c9c1e185614f88ad6465f5cceb1
+      internalID: -1874802981
       vertices: []
       indices: 
       edges: []
@@ -254,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 224b0899cd698f047b72409b2630d847
+    spriteID: 7b45771594dd1e3418a6aad811296058
     internalID: 0
     vertices: []
     indices: 
@@ -262,15 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bear front idle Enemy_0: 814534689
-      bear front idle Enemy_1: 573914961
-      bear front idle Enemy_2: -1313802237
-      bear front idle Enemy_3: 1131121524
-      bear front idle Enemy_4: -566246577
-      bear front idle Enemy_5: -1387382177
-      bear front idle Enemy_6: 1601825402
-      bear front idle Enemy_7: 979400851
-      bear front idle Enemy_8: 1197830881
+      Bear Idle Front_0: 915220573
+      Bear Idle Front_1: -672411701
+      Bear Idle Front_2: 1482467493
+      Bear Idle Front_3: -1974267151
+      Bear Idle Front_4: 521373468
+      Bear Idle Front_5: 1951674358
+      Bear Idle Front_6: -1874802981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

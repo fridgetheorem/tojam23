@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lynx back run enemy_0
+      name: Lynx Run Back_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7e98ad1e7009f742a2d04fa7289b623
-      internalID: 981344040
+      spriteID: 429eb4dafd5342d4885084926d97ab4e
+      internalID: -1972776563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx back run enemy_1
+      name: Lynx Run Back_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca75cf39b3065024a945f8acbbbbf8b1
-      internalID: -1445801226
+      spriteID: d5b7dfbc89ad1ad44b760e5dfa128982
+      internalID: -806744470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx back run enemy_2
+      name: Lynx Run Back_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5758fe2b33d5a0c4e96017ebf7eee191
-      internalID: 550815883
+      spriteID: 24689650dbd899c44b288f08436ceb19
+      internalID: 1715623159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx back run enemy_3
+      name: Lynx Run Back_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c92084d8b7b577489b6227a00685e84
-      internalID: 497679354
+      spriteID: 55cf26e2fc9fdc94bb4bac6da3485c5e
+      internalID: 228512419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx back run enemy_4
+      name: Lynx Run Back_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 578ad2a40847c2e488201cf2f022246e
-      internalID: 1267726398
+      spriteID: c7617d239f9c33d44bd9fd6776e6f6da
+      internalID: -95575130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx back run enemy_5
+      name: Lynx Run Back_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0023153167f5784f9147bb178360146
-      internalID: 1187992383
+      spriteID: 623f51409e5b1bb46a03413bc186bf8c
+      internalID: 989544389
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ee1195dc3cfcdbf40b131499e8aa34fd
+    spriteID: a94b651f38f926e4c988e7a131188b4b
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lynx back run enemy_0: 981344040
-      lynx back run enemy_1: -1445801226
-      lynx back run enemy_2: 550815883
-      lynx back run enemy_3: 497679354
-      lynx back run enemy_4: 1267726398
-      lynx back run enemy_5: 1187992383
+      Lynx Run Back_0: -1972776563
+      Lynx Run Back_1: -806744470
+      Lynx Run Back_2: 1715623159
+      Lynx Run Back_3: 228512419
+      Lynx Run Back_4: -95575130
+      Lynx Run Back_5: 989544389
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

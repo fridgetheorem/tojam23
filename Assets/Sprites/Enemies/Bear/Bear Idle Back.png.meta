@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bear back idle Enemy_0
+      name: Bear Idle Back_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65c1f19acdbfa5c4db325f5a0804dffd
-      internalID: -1438399237
+      spriteID: c8734cd2c945ef041965f67670c049a7
+      internalID: -18958758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back idle Enemy_1
+      name: Bear Idle Back_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ea23f5760748f3419be43ff072fae8e
-      internalID: -673532727
+      spriteID: db2bb43772e99ab4f92a603d1a466712
+      internalID: 1785296196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back idle Enemy_2
+      name: Bear Idle Back_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b458b2da5c1cd1641913ecc0324ee3e7
-      internalID: 1431606996
+      spriteID: 0c41aa021d7261142a66acfb44a55a87
+      internalID: 636446519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back idle Enemy_3
+      name: Bear Idle Back_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9381f286f7a49041a46daa66eb01f64
-      internalID: 1536041009
+      spriteID: 5f1958b01f4f9b14b8cd7aceadf2c7d5
+      internalID: 136878165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back idle Enemy_4
+      name: Bear Idle Back_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9740f4c434e391499253f388e8a6945
-      internalID: -880893307
+      spriteID: 237b3f57f19c8eb40b908c88092cb84c
+      internalID: -1164255171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back idle Enemy_5
+      name: Bear Idle Back_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 579b21b1b7499214bbf67b6c4a9302d0
-      internalID: 755090369
+      spriteID: 7646b20fde7f5c94295fe24bf067e042
+      internalID: 857976403
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: be03263e185967347951b24bd50d0f5e
+    spriteID: be5784f81bbfcac4dba0f4252539534a
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bear back idle Enemy_0: -1438399237
-      bear back idle Enemy_1: -673532727
-      bear back idle Enemy_2: 1431606996
-      bear back idle Enemy_3: 1536041009
-      bear back idle Enemy_4: -880893307
-      bear back idle Enemy_5: 755090369
+      Bear Idle Back_0: -18958758
+      Bear Idle Back_1: 1785296196
+      Bear Idle Back_2: 636446519
+      Bear Idle Back_3: 136878165
+      Bear Idle Back_4: -1164255171
+      Bear Idle Back_5: 857976403
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lynx front idle enemy_0
+      name: Lynx Idle Front_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,20 +113,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c060c0768955abd44a1793d8e1c11364
-      internalID: 1848144206
+      spriteID: 01ac9d038b3d8d247a0db6448978633d
+      internalID: -280361157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_1
+      name: Lynx Idle Front_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -134,20 +134,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9619a90f840c5c048bfb16ba2a933e73
-      internalID: -1163965969
+      spriteID: 8a1a7a08800c2d245a5cb75c6b6edeea
+      internalID: -1364287017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_2
+      name: Lynx Idle Front_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -155,20 +155,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d20af32b1f9259143b14a5d6637544d9
-      internalID: 981773273
+      spriteID: cc638547b0b31664a9ad7ee3999aeffb
+      internalID: -17101404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_3
+      name: Lynx Idle Front_3
       rect:
         serializedVersion: 2
         x: 3000
@@ -176,20 +176,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5b77e3ac9c5a424ba35ca6aeac7a294
-      internalID: 633588529
+      spriteID: 727fd1268629b0d46af0dab99870ad8d
+      internalID: -823544172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_4
+      name: Lynx Idle Front_4
       rect:
         serializedVersion: 2
         x: 4000
@@ -197,20 +197,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7dc143afa96a79418ab93a98c9a762c
-      internalID: -2031417338
+      spriteID: 8d528871fa3ff104e8e1b4d0d6580745
+      internalID: -709141044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_5
+      name: Lynx Idle Front_5
       rect:
         serializedVersion: 2
         x: 0
@@ -218,20 +218,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d549e67bfc72a91459e4f3dda7a2fe80
-      internalID: -28355563
+      spriteID: 55b78f5115498014fa80ac9f62ce69ba
+      internalID: 625666245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_6
+      name: Lynx Idle Front_6
       rect:
         serializedVersion: 2
         x: 1000
@@ -239,20 +239,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86dde2acd9261f647a0218b60b68c291
-      internalID: 1466503630
+      spriteID: 175dfac881322674ba9d0d9cfe036736
+      internalID: -2087514451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_7
+      name: Lynx Idle Front_7
       rect:
         serializedVersion: 2
         x: 2000
@@ -260,20 +260,20 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9afe018550926a49be08b0166973a68
-      internalID: -368971824
+      spriteID: cb1590c034481c34c84bd53e4343ba10
+      internalID: 1077698295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front idle enemy_8
+      name: Lynx Idle Front_8
       rect:
         serializedVersion: 2
         x: 3000
@@ -281,14 +281,35 @@ TextureImporter:
         width: 1000
         height: 1000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9d0cf68550100d42be7a4d15f4e1707
-      internalID: 1867225221
+      spriteID: 8a3e998b4b7f4974d966cf86be343dbe
+      internalID: 2144804918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lynx Idle Front_9
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1c20f7bd4978c4192a3d7483eb9d7d
+      internalID: 1538796314
       vertices: []
       indices: 
       edges: []
@@ -296,7 +317,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 54c1bd1b688fd9c4798afdb41367db30
+    spriteID: 5fb5430d29286f748a18732ea1bcade2
     internalID: 0
     vertices: []
     indices: 
@@ -304,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lynx front idle enemy_0: 1848144206
-      lynx front idle enemy_1: -1163965969
-      lynx front idle enemy_2: 981773273
-      lynx front idle enemy_3: 633588529
-      lynx front idle enemy_4: -2031417338
-      lynx front idle enemy_5: -28355563
-      lynx front idle enemy_6: 1466503630
-      lynx front idle enemy_7: -368971824
-      lynx front idle enemy_8: 1867225221
-      lynx front idle enemy_9: 484727191
+      Lynx Idle Front_0: -280361157
+      Lynx Idle Front_1: -1364287017
+      Lynx Idle Front_2: -17101404
+      Lynx Idle Front_3: -823544172
+      Lynx Idle Front_4: -709141044
+      Lynx Idle Front_5: 625666245
+      Lynx Idle Front_6: -2087514451
+      Lynx Idle Front_7: 1077698295
+      Lynx Idle Front_8: 2144804918
+      Lynx Idle Front_9: 1538796314
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
