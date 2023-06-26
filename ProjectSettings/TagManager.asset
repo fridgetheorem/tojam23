@@ -10,6 +10,7 @@ TagManager:
   - FoxAfterImage
   - FireSFX
   - RunningSFX
+  - Enemy
   layers:
   - Default
   - TransparentFX
