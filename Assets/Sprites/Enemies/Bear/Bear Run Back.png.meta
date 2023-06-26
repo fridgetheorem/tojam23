@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bear back run enemy_0
+      name: Bear Run Back_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2ea6bd46bf73f04fae4efccecdcecb5
-      internalID: -1904031060
+      spriteID: 1dd6205b2e09ae04395ce62edad905ee
+      internalID: -824576563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_1
+      name: Bear Run Back_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 662e1cb413cf6554f983d73e04a584cb
-      internalID: -397017252
+      spriteID: 6a259347c4acdb848b07d61461d31385
+      internalID: 31759628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_2
+      name: Bear Run Back_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d038031b4783db459e6b521b3de2fa8
-      internalID: -1834063372
+      spriteID: f55085e7e767cf741bd4a2823d1eb9b7
+      internalID: 439166411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_3
+      name: Bear Run Back_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a556f3a725d975e4ab06faf8571394f1
-      internalID: -817235385
+      spriteID: 35d2a2a9e5d4afe4f9631a469bdf7b8a
+      internalID: -1641179653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_4
+      name: Bear Run Back_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16220e800a88b8b42b679826461391fa
-      internalID: -1415428741
+      spriteID: 58efcd79295ee054b87b7c9eb34f3301
+      internalID: -1561514313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_5
+      name: Bear Run Back_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d66fa5da9cfed840a363bb39e194eff
-      internalID: 1349798265
+      spriteID: f8808143d77d9eb43852f97278a9e450
+      internalID: -1638502170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_6
+      name: Bear Run Back_6
       rect:
         serializedVersion: 2
         x: 0
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7a5b129e2c553f47a7e35b3dce5b22d
-      internalID: 1071672564
+      spriteID: 6e479156e3ca5c1428a9f6f7e2751a0d
+      internalID: -1564619388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_7
+      name: Bear Run Back_7
       rect:
         serializedVersion: 2
         x: 1000
@@ -266,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a6b98896a34b5e43995eba839efd487
-      internalID: 686243436
+      spriteID: 04d25b103a25c8c4592e65fa352ce703
+      internalID: 2046260281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear back run enemy_8
+      name: Bear Run Back_8
       rect:
         serializedVersion: 2
         x: 2000
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0e4ef407d8524e4f86f1fb2ee2eb92d
-      internalID: 436080942
+      spriteID: 7c4c846f95be2c643b438b0f17641e38
+      internalID: -2120164444
       vertices: []
       indices: 
       edges: []
@@ -296,7 +296,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a27f9a07edbb61e4f957f2685c2b4510
+    spriteID: 3e5bc09ed1e052846b18d61d278273cf
     internalID: 0
     vertices: []
     indices: 
@@ -304,15 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bear back run enemy_0: -1904031060
-      bear back run enemy_1: -397017252
-      bear back run enemy_2: -1834063372
-      bear back run enemy_3: -817235385
-      bear back run enemy_4: -1415428741
-      bear back run enemy_5: 1349798265
-      bear back run enemy_6: 1071672564
-      bear back run enemy_7: 686243436
-      bear back run enemy_8: 436080942
+      Bear Run Back_0: -824576563
+      Bear Run Back_1: 31759628
+      Bear Run Back_2: 439166411
+      Bear Run Back_3: -1641179653
+      Bear Run Back_4: -1561514313
+      Bear Run Back_5: -1638502170
+      Bear Run Back_6: -1564619388
+      Bear Run Back_7: 2046260281
+      Bear Run Back_8: -2120164444
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

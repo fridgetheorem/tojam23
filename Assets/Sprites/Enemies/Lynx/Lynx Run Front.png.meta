@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lynx front run enemy_0
+      name: Lynx Run Front_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82da79616e099dd458a74232992cdd94
-      internalID: 2003817326
+      spriteID: 39f4d00af71f7bc439b3a6988f93d806
+      internalID: 634385735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front run enemy_1
+      name: Lynx Run Front_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 019b11a02a8d57f489758cf49b21986b
-      internalID: 835461011
+      spriteID: 3b3b1024ddbe3d34189b0c59947ba296
+      internalID: -172114770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front run enemy_2
+      name: Lynx Run Front_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9be2f4b910f6944dafe0451ea519189
-      internalID: -1161623980
+      spriteID: b41250d920764db418fcf69aba77f81a
+      internalID: 227499619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front run enemy_3
+      name: Lynx Run Front_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d74340e90045c4da9b19f528a12f7b
-      internalID: -1469691946
+      spriteID: 774fb78d8d6121f4395391592cb00772
+      internalID: 177375510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front run enemy_4
+      name: Lynx Run Front_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1855e28f5967184fbaa088101508de1
-      internalID: 1299678872
+      spriteID: a34b2e727ae998943be04d3453753a06
+      internalID: 1544166607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lynx front run enemy_5
+      name: Lynx Run Front_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b75bba308db7a9344bcc61f48be5bb30
-      internalID: 432301307
+      spriteID: 36cd17537f8839c4485e6a18f1c2ba24
+      internalID: 48958395
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 30f6610ae5e7fcf4d9dad30fb55c0539
+    spriteID: f02cfd52fe68dc440bdf677a30967ddf
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lynx front run enemy_0: 2003817326
-      lynx front run enemy_1: 835461011
-      lynx front run enemy_2: -1161623980
-      lynx front run enemy_3: -1469691946
-      lynx front run enemy_4: 1299678872
-      lynx front run enemy_5: 432301307
+      Lynx Run Front_0: 634385735
+      Lynx Run Front_1: -172114770
+      Lynx Run Front_2: 227499619
+      Lynx Run Front_3: 177375510
+      Lynx Run Front_4: 1544166607
+      Lynx Run Front_5: 48958395
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

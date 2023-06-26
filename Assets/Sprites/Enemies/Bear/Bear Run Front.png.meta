@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bear front run enemy_0
+      name: Bear Run Front_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfb211a31fa8bc34f8fdd1ae7db1de34
-      internalID: -2117009652
+      spriteID: e7370348fcc15ff418e7195f9e764a0e
+      internalID: -784113555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_1
+      name: Bear Run Front_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 294433c0ad3d3754c8e97a084201c374
-      internalID: -623127704
+      spriteID: 641e9e7d714675d4dbc545c6d23073fa
+      internalID: 2048954805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_2
+      name: Bear Run Front_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99185adafb2dda64fa8dddb1c879a91a
-      internalID: -1714654091
+      spriteID: 25bd4f8475a174c499e0be1aeec2c95f
+      internalID: -747401554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_3
+      name: Bear Run Front_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186ad247c7ef90d49ba5d2ddf58cfa9d
-      internalID: -623133205
+      spriteID: 21e4b1d8ea4c2c547a621e001e341d5e
+      internalID: 1520267478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_4
+      name: Bear Run Front_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1c8d52d6d89e32428028d2d47da2228
-      internalID: -341706541
+      spriteID: 604ccc0f18e30e749b0840d406364b6b
+      internalID: 1780828946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_5
+      name: Bear Run Front_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f91ea3bcba3d6446a6c0e75a9eabeb2
-      internalID: 53769013
+      spriteID: 0325f8f1421ad1d4bae67c42a1aadbbd
+      internalID: 453321145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_6
+      name: Bear Run Front_6
       rect:
         serializedVersion: 2
         x: 0
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a05c0a80dcbbc304da50859d564c7056
-      internalID: 122636083
+      spriteID: 0f86703dfa5628643b4d20a190e6cd05
+      internalID: 381811369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_7
+      name: Bear Run Front_7
       rect:
         serializedVersion: 2
         x: 1000
@@ -266,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ef601dc746d28e4badd74767f15c85c
-      internalID: -544573167
+      spriteID: 2dfcbc557719b584eb91f5fbe45bc5c0
+      internalID: -1252765291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bear front run enemy_8
+      name: Bear Run Front_8
       rect:
         serializedVersion: 2
         x: 2000
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16c6e7711620e4a45a93bdc480626eb7
-      internalID: -811806355
+      spriteID: 99e2e1db315d61f4b8911f1b976938df
+      internalID: -1700222424
       vertices: []
       indices: 
       edges: []
@@ -296,7 +296,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5bb7815b1f5b69048aaa51760cbea584
+    spriteID: 2a68c27d433e37c47bd238d982cc2c31
     internalID: 0
     vertices: []
     indices: 
@@ -304,15 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bear front run enemy_0: -2117009652
-      bear front run enemy_1: -623127704
-      bear front run enemy_2: -1714654091
-      bear front run enemy_3: -623133205
-      bear front run enemy_4: -341706541
-      bear front run enemy_5: 53769013
-      bear front run enemy_6: 122636083
-      bear front run enemy_7: -544573167
-      bear front run enemy_8: -811806355
+      Bear Run Front_0: -784113555
+      Bear Run Front_1: 2048954805
+      Bear Run Front_2: -747401554
+      Bear Run Front_3: 1520267478
+      Bear Run Front_4: 1780828946
+      Bear Run Front_5: 453321145
+      Bear Run Front_6: 381811369
+      Bear Run Front_7: -1252765291
+      Bear Run Front_8: -1700222424
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
