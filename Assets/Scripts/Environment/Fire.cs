@@ -43,14 +43,14 @@ public class Fire : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AnimalController animal = other.gameObject.GetComponent<AnimalController>();
-        if (animal != null)
+        if (animal != null && other.gameObject.tag != "Enemy")
             StartCoroutine(TakeDamage(animal));
     }
 
     private void OnTriggerExit(Collider other)
     {
         AnimalController animal = other.gameObject.GetComponent<AnimalController>();
-        if (animal != null)
+        if (animal != null && other.gameObject.tag != "Enemy")
             StopAllCoroutines();
     }
 

@@ -41,5 +41,10 @@ public class InputController : MonoBehaviour
         {
             party.CycleLeader();
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            party.Cheat();
+        }
     }
 }
