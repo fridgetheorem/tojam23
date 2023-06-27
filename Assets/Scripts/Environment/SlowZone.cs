@@ -31,7 +31,7 @@ public class SlowZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AnimalController animal = other.gameObject.GetComponent<AnimalController>();
-        if (animal != null && AnimalIndex(animal) == -1)
+        if (animal != null && AnimalIndex(animal) == -1 && other.gameObject.tag != "Enemy")
         {
             animalsInZone.Add(animal);
             timeInZone.Add(0f);
@@ -43,7 +43,7 @@ public class SlowZone : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         AnimalController animal = other.gameObject.GetComponent<AnimalController>();
-        if (animal != null)
+        if (animal != null && other.gameObject.tag != "Enemy")
             animal.speed = _slowSpeed;
     }
 
@@ -52,7 +52,7 @@ public class SlowZone : MonoBehaviour
     {
         AnimalController animal = other.gameObject.GetComponent<AnimalController>();
 
-        if (animal != null)
+        if (animal != null && other.gameObject.tag != "Enemy")
         {
             animal.speed = animal.originalSpeed;
 
