@@ -225,7 +225,7 @@ public class PartyController : MonoBehaviour
     // Radius is an optional parameter which describes how far they have to be from the leader before we tp
     public void TeleportPartyMembersToLeader(float radius = 0f)
     {
-        Debug.Log("Teleporting to:" + leader.transform.position);
+        //Debug.Log("Teleporting to:" + leader.transform.position);
         for (int i = 0; i < members.Length; ++i)
         {
             if (i == leaderIndex)
@@ -260,5 +260,15 @@ public class PartyController : MonoBehaviour
     public void OnPartySynced()
     {
         _partySynced = true;
+    }
+
+    public void Cheat()
+    {
+        foreach (GameObject member in members)
+        {
+            AnimalController animal = member.GetComponent<AnimalController>();
+            animal.speed = 20f;
+            animal.health = animal.maxHealth;
+        }
     }
 }
