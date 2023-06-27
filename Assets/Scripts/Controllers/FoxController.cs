@@ -16,7 +16,6 @@ public class FoxController : AnimalController
 
     //private bool _dashing = false;
     private Vector3 heading;
-    private float _dashPartyTeleportDistance = 3f;
 
     private Vector3 originalScale;
 
