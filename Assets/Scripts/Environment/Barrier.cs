@@ -43,7 +43,7 @@ public class Barrier : MonoBehaviour
     {
         for (int i = 0; i < enemies.Count; i++)
         {
-            if (enemies[i].health == 0f)
+            if (enemies[i].health <= 0f)
             {
                 enemies.RemoveAt(i);
                 break;
