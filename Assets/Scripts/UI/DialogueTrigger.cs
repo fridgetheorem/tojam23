@@ -13,6 +13,9 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     private bool triggered = false;
 
+    public delegate void OnDialogueFinish();
+    public event OnDialogueFinish DialogueFinished;
+
     void Start()
     {
         if (dialogue.type == DialogueType.Starting)
@@ -23,7 +26,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
         if (dialogue.type == DialogueType.Ending)
         {
             // Transition to credits.
@@ -43,5 +46,10 @@ public class DialogueTrigger : MonoBehaviour
 
         TriggerDialogue();
         triggered = true;
+    }
+
+    public void TriggerDialogueFinish()
+    {
+        DialogueFinished?.Invoke();
     }
 }
