@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
 
     private float nextDialogueTimer = 3f;
 
+    private DialogueTrigger currentTrigger;
+
     public void TriggerDialogueObject(string dialogueObjectName)
     {
         GameObject go = GameObject.Find(dialogueObjectName);
@@ -36,8 +38,10 @@ public class DialogueManager : MonoBehaviour
         trigger.TriggerDialogue();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
+        currentTrigger = trigger;
+
         // Triggers the ending of the game.
         if (dialogue.type == DialogueType.Ending)
         {
@@ -110,6 +114,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", false);
+        currentTrigger.TriggerDialogueFinish();
 
         // Game is over
         if (dialogue.type == DialogueType.Ending)
