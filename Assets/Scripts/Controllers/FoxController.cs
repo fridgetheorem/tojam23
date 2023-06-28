@@ -45,7 +45,11 @@ public class FoxController : AnimalController
             return;
 
         UpdateAnimator("Dashing", true);
-        transform.localScale = new Vector3(originalScale.x, originalScale.y / 2f, originalScale.z);
+        transform.localScale = new Vector3(
+            originalScale.x,
+            originalScale.y / 2f,
+            originalScale.z / 2f
+        );
 
         // Create an afterimage.
         CreateAfterImage();
