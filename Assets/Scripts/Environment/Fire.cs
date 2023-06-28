@@ -11,6 +11,20 @@ public class Fire : MonoBehaviour
 
     public float _coolDown = 0.5f;
 
+    void Start()
+    {
+        StartCoroutine(PlayAnimation(Random.Range(0f, 1f)));
+    }
+
+    IEnumerator PlayAnimation(float time)
+    {
+        Animator animator = GetComponent<Animator>();
+
+        yield return new WaitForSeconds(time);
+
+        animator.SetBool("Playing", true);
+    }
+
     public void DestroyFire()
     {
         Destroy(gameObject.GetComponentInChildren<Collider>());
