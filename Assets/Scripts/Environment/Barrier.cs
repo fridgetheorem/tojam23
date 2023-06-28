@@ -67,7 +67,7 @@ public class Barrier : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("FireSFX").GetComponent<AudioSource>().Play();
             animator.SetTrigger("ClearBarrier");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
         }
 
         Destroy(this.gameObject);
