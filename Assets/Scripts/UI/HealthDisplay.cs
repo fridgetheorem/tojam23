@@ -43,16 +43,26 @@ public class HealthDisplay : MonoBehaviour
         {
             return;
         }
+
+        if (oldHealth - newHealth > 0)
+            AnimateHealthChanged(Color.red);
+        else if (oldHealth - newHealth < 0)
+            AnimateHealthChanged(Color.green);
+
         sprite.color = Color.white;
-        StopCoroutine(TakeDamage());
-        StartCoroutine(TakeDamage());
     }
 
-    IEnumerator TakeDamage()
+    void AnimateHealthChanged(Color color)
+    {
+        StopCoroutine(ShowHealthChanged(color));
+        StartCoroutine(ShowHealthChanged(color));
+    }
+
+    IEnumerator ShowHealthChanged(Color color)
     {
         yield return new WaitForSeconds(0.05f);
-        sprite.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
+        sprite.color = color;
+        yield return new WaitForSeconds(0.25f);
         sprite.color = Color.white;
     }
 

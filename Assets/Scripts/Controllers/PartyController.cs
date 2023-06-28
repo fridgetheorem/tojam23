@@ -87,6 +87,9 @@ public class PartyController : MonoBehaviour
         {
             _partySyncZone.PartySynced += OnPartySynced;
         }
+
+        // Innate party healing to make the demo easier.
+        StartHealing();
     }
 
     private void SetLeader()
@@ -269,6 +272,29 @@ public class PartyController : MonoBehaviour
             AnimalController animal = member.GetComponent<AnimalController>();
             animal.speed = 20f;
             animal.health = animal.maxHealth;
+        }
+    }
+
+    public void StartHealing()
+    {
+        StartCoroutine(HealParty());
+    }
+
+    public void StopHealing()
+    {
+        StopCoroutine(HealParty());
+    }
+
+    IEnumerator HealParty()
+    {
+        while (true)
+        {
+            foreach (GameObject member in members)
+            {
+                AnimalController animal = member.GetComponent<AnimalController>();
+                animal.Heal(1f);
+            }
+            yield return new WaitForSeconds(3f);
         }
     }
 }
