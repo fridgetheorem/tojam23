@@ -124,7 +124,7 @@ public class TutorialText : MonoBehaviour
         if (completeOn == Completion.EnemyClear)
         {
             if (barrier)
-                barrier.EnemiesCleared += CompleteTutorial;
+                barrier.EnemiesCleared -= CompleteTutorial;
         }
 
         trigger.DialogueFinished -= ShowTutorial;

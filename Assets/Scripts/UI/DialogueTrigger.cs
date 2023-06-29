@@ -16,6 +16,8 @@ public class DialogueTrigger : MonoBehaviour
     public delegate void OnDialogueFinish();
     public event OnDialogueFinish DialogueFinished;
 
+    public Barrier barrier;
+
     void Start()
     {
         if (dialogue.type == DialogueType.Starting)
@@ -28,13 +30,25 @@ public class DialogueTrigger : MonoBehaviour
             PartySyncZone _partySyncZone = FindObjectOfType<PartySyncZone>();
             if (_partySyncZone)
                 _partySyncZone.PartySynced += TriggerDialogue;
+
+            Destroy(GetComponent<Collider>());
+        }
+
+        if (dialogue.type == DialogueType.EnemyClear)
+        {
+            if (barrier)
+                barrier.EnemiesCleared += TriggerDialogue;
+            else
+                Debug.LogWarning("Tutorial has no reference to barrier.");
+
+            Destroy(GetComponent<Collider>());
         }
     }
 
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
-        if (dialogue.type == DialogueType.Ending)
+        if (dialogue.type == DialogueType.Ending) // Deprecated
         {
             // Transition to credits.
             // FindObjectOfType<PauseMenuUIManager>().StartFinalCutscene();
@@ -67,6 +81,14 @@ public class DialogueTrigger : MonoBehaviour
             PartySyncZone _partySyncZone = FindObjectOfType<PartySyncZone>();
             if (_partySyncZone)
                 _partySyncZone.PartySynced -= TriggerDialogue;
+        }
+
+        if (dialogue.type == DialogueType.EnemyClear)
+        {
+            if (barrier)
+                barrier.EnemiesCleared -= TriggerDialogue;
+            else
+                Debug.LogWarning("Tutorial has no reference to barrier.");
         }
     }
 }
