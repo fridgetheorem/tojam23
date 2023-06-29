@@ -11,8 +11,8 @@ public enum DialogueType // your custom enumeration
     Regular,
     Starting,
     Ending,
-
-    PartySync
+    PartySync,
+    EnemyClear
 };
 
 [System.Serializable]
