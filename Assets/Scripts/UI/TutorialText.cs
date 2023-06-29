@@ -24,6 +24,8 @@ public class TutorialText : MonoBehaviour
 
     private bool completed = false;
 
+    private bool writing = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +50,7 @@ public class TutorialText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!completed && completeOn == Completion.KeyInput)
+        if (!completed && !writing && completeOn == Completion.KeyInput)
         {
             foreach (KeyCode key in keys)
             {
@@ -85,6 +87,8 @@ public class TutorialText : MonoBehaviour
 
             yield return new WaitForSeconds(0.03f);
         }
+
+        writing = false;
     }
 
     void CompleteTutorial()
