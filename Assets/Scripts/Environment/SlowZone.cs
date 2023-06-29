@@ -25,7 +25,11 @@ public class SlowZone : MonoBehaviour
 
     // Start is called before the first frame update
 
-    void Start() { }
+    void Start()
+    {
+        // Doing this because I just realized none of these slowzones are prefabs and I don't want to change them all.
+        _slowSpeed = 1.5f;
+    }
 
     // Entering the slowzone will add this animal to the DoT damage.
     private void OnTriggerEnter(Collider other)

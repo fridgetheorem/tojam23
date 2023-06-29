@@ -7,7 +7,8 @@ using UnityEngine.Events;
 public enum Completion
 {
     KeyInput,
-    PartySync
+    PartySync,
+    EnemyClear
 }
 
 public class TutorialText : MonoBehaviour
@@ -26,6 +27,8 @@ public class TutorialText : MonoBehaviour
 
     private bool writing = true;
 
+    public Barrier barrier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,14 @@ public class TutorialText : MonoBehaviour
             PartySyncZone _partySyncZone = FindObjectOfType<PartySyncZone>();
             if (_partySyncZone)
                 _partySyncZone.PartySynced += CompleteTutorial;
+        }
+
+        if (completeOn == Completion.EnemyClear)
+        {
+            if (barrier)
+                barrier.EnemiesCleared += CompleteTutorial;
+            else
+                Debug.LogWarning("Tutorial has no reference to barrier.");
         }
 
         trigger.DialogueFinished += ShowTutorial;
@@ -85,7 +96,7 @@ public class TutorialText : MonoBehaviour
                 textBox.text += letter;
             }
 
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         writing = false;
@@ -98,6 +109,7 @@ public class TutorialText : MonoBehaviour
 
     IEnumerator EndTutorial()
     {
+        yield return new WaitForSeconds(0.25f);
         text.SetTrigger("Completed");
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
@@ -108,6 +120,12 @@ public class TutorialText : MonoBehaviour
         PartySyncZone _partySyncZone = FindObjectOfType<PartySyncZone>();
         if (_partySyncZone)
             _partySyncZone.PartySynced -= CompleteTutorial;
+
+        if (completeOn == Completion.EnemyClear)
+        {
+            if (barrier)
+                barrier.EnemiesCleared += CompleteTutorial;
+        }
 
         trigger.DialogueFinished -= ShowTutorial;
     }

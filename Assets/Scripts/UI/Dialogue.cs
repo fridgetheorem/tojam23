@@ -10,7 +10,9 @@ public enum DialogueType // your custom enumeration
 {
     Regular,
     Starting,
-    Ending
+    Ending,
+
+    PartySync
 };
 
 [System.Serializable]
