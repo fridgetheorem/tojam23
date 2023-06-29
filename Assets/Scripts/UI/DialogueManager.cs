@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour
             }
             skippingPrevious = Input.GetButton("Skip");
 
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         skippingPrevious = true;
@@ -115,6 +115,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         currentTrigger.TriggerDialogueFinish();
+        Destroy(currentTrigger.gameObject);
 
         // Game is over
         if (dialogue.type == DialogueType.Ending)

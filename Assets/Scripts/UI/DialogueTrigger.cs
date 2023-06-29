@@ -22,6 +22,13 @@ public class DialogueTrigger : MonoBehaviour
         {
             TriggerDialogue();
         }
+
+        if (dialogue.type == DialogueType.PartySync)
+        {
+            PartySyncZone _partySyncZone = FindObjectOfType<PartySyncZone>();
+            if (_partySyncZone)
+                _partySyncZone.PartySynced += TriggerDialogue;
+        }
     }
 
     public void TriggerDialogue()
@@ -51,5 +58,15 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogueFinish()
     {
         DialogueFinished?.Invoke();
+    }
+
+    void Destory()
+    {
+        if (dialogue.type == DialogueType.PartySync)
+        {
+            PartySyncZone _partySyncZone = FindObjectOfType<PartySyncZone>();
+            if (_partySyncZone)
+                _partySyncZone.PartySynced -= TriggerDialogue;
+        }
     }
 }

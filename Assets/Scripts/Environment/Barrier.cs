@@ -15,6 +15,9 @@ public class Barrier : MonoBehaviour
     [Tooltip("Add all the enemies the player must kill for this barrier to dissapear.")]
     public List<EnemyController> enemies;
 
+    public delegate void OnBarrierClear();
+    public event OnBarrierClear EnemiesCleared;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,7 @@ public class Barrier : MonoBehaviour
 
     void ClearBarrier()
     {
+        EnemiesCleared?.Invoke();
         StartCoroutine(DestroyBarrier());
     }
 
