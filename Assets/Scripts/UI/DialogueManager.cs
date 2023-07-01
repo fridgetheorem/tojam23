@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     private float nextDialogueTimer = 3f;
 
-    private DialogueTrigger currentTrigger;
+    public DialogueTrigger currentTrigger;
 
     public void TriggerDialogueObject(string dialogueObjectName)
     {
@@ -40,6 +40,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
+        if (currentTrigger != null)
+            DestroyTrigger();
         currentTrigger = trigger;
 
         // Triggers the ending of the game.
@@ -114,13 +116,19 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", false);
-        currentTrigger.TriggerDialogueFinish();
-        Destroy(currentTrigger.gameObject);
+        DestroyTrigger();
+        currentTrigger = null;
 
         // Game is over
         if (dialogue.type == DialogueType.Ending)
         {
             GameOver?.Invoke();
         }
+    }
+
+    void DestroyTrigger()
+    {
+        currentTrigger.TriggerDialogueFinish();
+        Destroy(currentTrigger.gameObject);
     }
 }
