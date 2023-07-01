@@ -76,8 +76,11 @@ public class TutorialText : MonoBehaviour
 
     void ShowTutorial()
     {
-        text.SetTrigger("Triggered");
-        StartCoroutine(TypeTutorial(tutorialText));
+        if (text != null) // Make sure object isn't already destroyed.
+        {
+            text.SetTrigger("Triggered");
+            StartCoroutine(TypeTutorial(tutorialText));
+        }
     }
 
     IEnumerator TypeTutorial(string text)
