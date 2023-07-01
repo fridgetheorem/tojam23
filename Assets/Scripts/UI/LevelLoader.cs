@@ -19,6 +19,13 @@ public class LevelLoader : MenuManager
         SceneManager.LoadScene(levelIndex);
     }
 
+    IEnumerator Quitting()
+    {
+        transition.SetBool("Start", true);
+        yield return new WaitForSeconds(_transitionTime);
+        base.QuitGame();
+    }
+
     void Start()
     {
         Time.timeScale = 1f;
@@ -58,6 +65,24 @@ public class LevelLoader : MenuManager
         FadeToBlack();
 
         Debug.Log("End Cutscene triggered");
+    }
+
+    public override void MainMenu()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(LoadLevel(0));
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(LoadLevel(1));
+    }
+
+    public override void QuitGame()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(Quitting());
     }
 
     void Destroy()
