@@ -10,6 +10,8 @@ public class LevelLoader : MenuManager
     [SerializeField]
     private float _transitionTime = 1f;
 
+    public Animator endScreen;
+
     private DialogueManager dialogueManager;
 
     IEnumerator LoadLevel(int levelIndex)
@@ -62,7 +64,8 @@ public class LevelLoader : MenuManager
 
     public void EndCutscene()
     {
-        FadeToBlack();
+        if (endScreen)
+            endScreen.SetBool("Start", true);
 
         Debug.Log("End Cutscene triggered");
     }
